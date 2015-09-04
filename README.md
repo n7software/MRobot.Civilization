@@ -1,4 +1,4 @@
-# Civilization
+# MRobot.Civilization
 
 A .Net library that has reverse engineered much of the file structure for saved games in **Sid Meier's Civlization V** and **Sid Meier's Civilization: Beyond Earth**. This library supports parsing, modifying, and saving an existing save file or creating a new game configuration file from scratch. It provides a set of classes that expose almost all settings stored in a save file such as:
 - Number and type of players (Human vs AI)
