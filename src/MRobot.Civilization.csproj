@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F11DA31E-AA51-479C-B542-2F0F9FFB7186}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MRobot.Civilization</RootNamespace>
+    <AssemblyName>MRobot.Civilization</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseSaveItem.cs" />
+    <Compile Include="Civs\Civilization.cs" />
+    <Compile Include="Civs\CivilizationLib.cs" />
+    <Compile Include="Civs\CivilizationMinor.cs" />
+    <Compile Include="Civs\ICivilization.cs" />
+    <Compile Include="Civs\Leader.cs" />
+    <Compile Include="Civs\LeaderLib.cs" />
+    <Compile Include="Color\PlayerColor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Color\PlayerColorLib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Expansion\Expansion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Expansion\ExpansionLib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Expansion\IExpandable.cs" />
+    <Compile Include="Expansion\Mod.cs" />
+    <Compile Include="Game\GameEra.cs" />
+    <Compile Include="Game\GamePace.cs" />
+    <Compile Include="Game\Maps\Enums\BodiesOfWater.cs" />
+    <Compile Include="Game\Maps\Enums\IsthmusWidth.cs" />
+    <Compile Include="Game\Maps\Enums\LandShape.cs" />
+    <Compile Include="Game\Maps\Enums\LandType.cs" />
+    <Compile Include="Game\Maps\Enums\EnumDefinitions.cs" />
+    <Compile Include="Game\Maps\Enums\Landmass.cs" />
+    <Compile Include="Game\Maps\Enums\MountainDensity.cs" />
+    <Compile Include="Game\Maps\Enums\MountainPattern.cs" />
+    <Compile Include="Game\Maps\Enums\Ocean.cs" />
+    <Compile Include="Game\Maps\Enums\TeamSetting.cs" />
+    <Compile Include="Game\Maps\Enums\Terrain.cs" />
+    <Compile Include="Game\Maps\Enums\TinyIslands.cs" />
+    <Compile Include="Game\Maps\Enums\WaterSetting.cs" />
+    <Compile Include="Game\Maps\Map.cs" />
+    <Compile Include="Game\Maps\MapLib.cs" />
+    <Compile Include="Game\Maps\Enums\MapSize.cs" />
+    <Compile Include="Game\GameProperty.cs" />
+    <Compile Include="Game\Maps\MapPropertyLib.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\PlayerDifficulty.cs" />
+    <Compile Include="Game\GameMode.cs" />
+    <Compile Include="Game\PlayerType.cs" />
+    <Compile Include="Game\Maps\Enums\Rainfall.cs" />
+    <Compile Include="Game\Maps\Enums\Resources.cs" />
+    <Compile Include="Game\Maps\Enums\SeaLevel.cs" />
+    <Compile Include="Game\Maps\Enums\Temperature.cs" />
+    <Compile Include="Game\Maps\Enums\WorldAge.cs" />
+    <Compile Include="ISaveItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveNumber.cs" />
+    <Compile Include="SaveString.cs" />
+    <Compile Include="Save\GameConfig.cs" />
+    <Compile Include="Save\Load.cs" />
+    <Compile Include="Save\Save.cs" />
+    <Compile Include="Save\GameSave.cs" />
+    <Compile Include="Save\SaveHelpers.cs" />
+    <Compile Include="Save\SaveReader.cs" />
+    <Compile Include="Save\SaveWriter.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
