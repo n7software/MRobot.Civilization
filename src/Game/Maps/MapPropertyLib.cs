@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Game.Maps.Enums;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Game.Maps
 {
     static  class MapPropertyLib
     {

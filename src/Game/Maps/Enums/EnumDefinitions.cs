@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Game.Maps.Enums
 {
     static partial class EnumDefinitions
     {

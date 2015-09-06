@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MRobot.CivilizationV
+﻿namespace MRobot.Civilization.Expansion
 {
     /// <summary>
     /// Means that a certain item is expandable, and thus means that a specific instance's 

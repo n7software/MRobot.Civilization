@@ -1,14 +1,10 @@
-﻿using MRobot.CivilizationV.Color;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Color;
 
-namespace MRobot.CivilizationV.Civs
+namespace MRobot.Civilization.Civs
 {
-    using System.Net.Mail;
-
     public sealed partial class Civilization
     {
         private static IDictionary<string, Func<ICivilization>> _CivsByName;
@@ -80,7 +76,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 3,
                     name: "Assyria",
                     color: PlayerColor.Assyria, 
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.Ashurbanipal
                 );
 			}
@@ -94,7 +90,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 4,
                     name: "Austria",
                     color: PlayerColor.Austria, 
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.MariaTheresa
                 );
 			}
@@ -121,7 +117,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 6,
                     name: "Babylon",
                     color: PlayerColor.Babylon, 
-                    requirement: Expansion.Babylon,
+                    requirement: Expansion.Expansion.Babylon,
                     leader: Leader.NebuchadnezzarII
                 );
 			}
@@ -135,7 +131,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 7,
                     name: "Brazil",
                     color: PlayerColor.Brazil, 
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.PedroII
                 );
 			}
@@ -149,7 +145,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 8,
                     name: "Byzantium",
                     color: PlayerColor.Byzantium, 
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.Theodora
                 );
 			}
@@ -163,7 +159,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 9,
                     name: "Carthage",
                     color: PlayerColor.Carthage, 
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.Dido
                 );
 			}
@@ -177,7 +173,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 10,
                     name: "Celts",
                     color: PlayerColor.Celts, 
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.Boudicca
                 );
 			}
@@ -204,7 +200,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 12,
                     name: "Denmark",
                     color: PlayerColor.Denmark, 
-                    requirement: Expansion.Denmark,
+                    requirement: Expansion.Expansion.Denmark,
                     leader: Leader.HaraldBluetooth
                 );
 			}
@@ -244,7 +240,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 15,
                     name: "Ethiopia",
                     color: PlayerColor.Ethiopia,
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.HaileSelassie
                 );
 			}
@@ -297,7 +293,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 19,
                     name: "Huns",
                     color: PlayerColor.Huns,
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.Atilla
                 );
 			}
@@ -311,7 +307,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 20,
                     name: "Inca",
                     color: PlayerColor.Inca,
-                    requirement: Expansion.SpainAndInca,
+                    requirement: Expansion.Expansion.SpainAndInca,
                     leader: Leader.Pachacuti
                 );
 			}
@@ -338,7 +334,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 22,
                     name: "Indonesia",
                     color: PlayerColor.Indonesia,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.GajahMada
                 );
 			}
@@ -378,7 +374,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 25,
                     name: "Korea",
                     color: PlayerColor.Korea,
-                    requirement: Expansion.Korea,
+                    requirement: Expansion.Expansion.Korea,
                     leader: Leader.Sejong
                 );
 			}
@@ -392,7 +388,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 26,
                     name: "Maya",
                     color: PlayerColor.Maya,
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.Pacal
                 );
 			}
@@ -406,7 +402,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 27,
                     name: "Mongolia",
                     color: PlayerColor.Mongolia,
-                    requirement: Expansion.Mongolia,
+                    requirement: Expansion.Expansion.Mongolia,
                     leader: Leader.GenghisKhan
                 );
 			}
@@ -420,7 +416,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 28,
                     name: "Morocco",
                     color: PlayerColor.Morocco,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.AhmadAlMansur
                 );
 			}
@@ -434,7 +430,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 29,
                     name: "Netherlands",
                     color: PlayerColor.Netherlands,
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.William
                 );
 			}
@@ -474,7 +470,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 32,
                     name: "Poland",
                     color: PlayerColor.Poland,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.Casimir
                 );
 			}
@@ -488,7 +484,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 33,
                     name: "Polynesia",
                     color: PlayerColor.Polynesia,
-                    requirement: Expansion.Polynesia,
+                    requirement: Expansion.Expansion.Polynesia,
                     leader: Leader.Kamehameha
                 );
 			}
@@ -502,7 +498,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 34,
                     name: "Portugal",
                     color: PlayerColor.Portugal,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.Maria
                 );
 			}
@@ -542,7 +538,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 37,
                     name: "Shoshone",
                     color: PlayerColor.Shoshone,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.Pocatello
                 );
 			}
@@ -582,7 +578,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 40,
                     name: "Spain",
                     color: PlayerColor.Spain,
-                    requirement: Expansion.SpainAndInca,
+                    requirement: Expansion.Expansion.SpainAndInca,
                     leader: Leader.Isabella
                 );
 			}
@@ -596,7 +592,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 41,
                     name: "Sweden",
                     color: PlayerColor.Sweden,
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     leader: Leader.GustavusAdolphus
                 );
 			}
@@ -610,7 +606,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 42,
                     name: "Venice",
                     color: PlayerColor.Venice,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.EnricoDandolo
                 );
 			}
@@ -624,7 +620,7 @@ namespace MRobot.CivilizationV.Civs
                     id: 43,
                     name: "Zulu",
                     color: PlayerColor.Zulus,
-                    requirement: Expansion.BraveNewWorld,
+                    requirement: Expansion.Expansion.BraveNewWorld,
                     leader: Leader.Shaka
                 );
 			}

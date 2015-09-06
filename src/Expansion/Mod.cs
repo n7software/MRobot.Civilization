@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace MRobot.CivilizationV
+namespace MRobot.Civilization.Expansion
 {
     public class Mod : IEquatable<Mod>, ISaveItem
     {

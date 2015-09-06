@@ -1,16 +1,11 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Color;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using MRobot.Civilization.Civs;
+using MRobot.Civilization.Expansion;
+using MRobot.Civilization.Game;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Save
 {
     public partial class GameSave : GameConfig
     {
@@ -63,10 +58,10 @@ namespace MRobot.CivilizationV.Save
                     reader.ReadInt32();
                     var expansionName = reader.ReadSaveString();
 
-                    var expansion = Expansion.AllWithInternal.SingleOrDefault(e => Enumerable.SequenceEqual(e.SaveId, expansionId) && e.SaveName == expansionName);
+                    var expansion = Expansion.Expansion.AllWithInternal.SingleOrDefault(e => Enumerable.SequenceEqual(e.SaveId, expansionId) && e.SaveName == expansionName);
                     if (expansion == null)
                     {
-                        expansion = new Expansion(expansionName, expansionName, String.Empty, expansionId);
+                        expansion = new Expansion.Expansion(expansionName, expansionName, String.Empty, expansionId);
                     }
                     gameSave.AddExpansion(expansion);
                 }

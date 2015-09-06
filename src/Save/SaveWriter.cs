@@ -1,11 +1,7 @@
-﻿using MRobot.CivilizationV.Game;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
+using MRobot.Civilization.Game;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Save
 {
     public class SaveWriter : BinaryWriter
     {

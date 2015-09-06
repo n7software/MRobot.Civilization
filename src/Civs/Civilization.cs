@@ -1,17 +1,14 @@
-﻿using MRobot.CivilizationV.Color;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using MRobot.Civilization.Color;
+using MRobot.Civilization.Expansion;
 
-namespace MRobot.CivilizationV.Civs
+namespace MRobot.Civilization.Civs
 {
     public partial class Civilization : ISaveItem, IExpandable, ICivilization
     {
         const string Prefix = "CIVILIZATION";
 
-        internal Civilization(int id, string name = null, PlayerColor color = null, Leader leader = null, Expansion requirement = null)
+        internal Civilization(int id, string name = null, PlayerColor color = null, Leader leader = null, Expansion.Expansion requirement = null)
         {
             Id = id;
             Color = color;
@@ -34,6 +31,6 @@ namespace MRobot.CivilizationV.Civs
         public int Id { get; private set; }
         public Leader Leader { get; set; }
         public PlayerColor Color { get; set; }
-        public Expansion Requirement { get; private set; }
+        public Expansion.Expansion Requirement { get; private set; }
     }
 }

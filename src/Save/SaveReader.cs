@@ -1,14 +1,14 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Color;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using MRobot.Civilization.Civs;
+using MRobot.Civilization.Color;
+using MRobot.Civilization.Game;
+using MRobot.Civilization.Game.Maps;
+using MRobot.Civilization.Game.Maps.Enums;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Save
 {
     class SaveReader : IDisposable
     {
@@ -144,7 +144,7 @@ namespace MRobot.CivilizationV.Save
             var civStr = this.ReadSaveString(1);
             ICivilization civ = null;
             if (!civMinor)
-                civ = Civilization.FindBySaveName(civStr);
+                civ = Civs.Civilization.FindBySaveName(civStr);
             if (civ == null)
             {
                 if (civMinor && String.IsNullOrEmpty(civStr.Prefix))
@@ -152,7 +152,7 @@ namespace MRobot.CivilizationV.Save
                 else if (civMinor)
                     civ = new CivilizationMinor(civStr.Value, null);
                 else
-                    civ = new Civilization(-1, civStr.Value, null, Leader.Barbarian);
+                    civ = new Civs.Civilization(-1, civStr.Value, null, Leader.Barbarian);
             }
             return civ;
         }

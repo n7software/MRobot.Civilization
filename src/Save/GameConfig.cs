@@ -1,13 +1,12 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Civs;
+using MRobot.Civilization.Expansion;
+using MRobot.Civilization.Game;
+using MRobot.Civilization.Game.Maps;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Save
 {
     public partial class GameConfig
     {
@@ -24,10 +23,10 @@ namespace MRobot.CivilizationV.Save
             Name = "My Game";
             GameMode = GameMode.HotSeat;
 
-            _Expansions = new HashSet<Expansion>
+            _Expansions = new HashSet<Expansion.Expansion>
             {
-                Expansion.Mongolia, 
-                Expansion.Upgrade1
+                Expansion.Expansion.Mongolia, 
+                Expansion.Expansion.Upgrade1
             };
 
             Mods = new HashSet<Mod>();
@@ -105,12 +104,12 @@ namespace MRobot.CivilizationV.Save
 
         public int RandomSeed { get; protected set; }
 
-        private readonly ISet<Expansion> _Expansions;
+        private readonly ISet<Expansion.Expansion> _Expansions;
 
         /// <summary>
         /// Note that all games have the Upgrade 1 expansion
         /// </summary>
-        public IEnumerable<Expansion> Expansions
+        public IEnumerable<Expansion.Expansion> Expansions
         {
             get { return _Expansions.ToArray(); }
         }
@@ -118,17 +117,17 @@ namespace MRobot.CivilizationV.Save
         /// <summary>
         /// Note that adding all expansions to a map will automatically add the Civilization V Compete expansion
         /// </summary>
-        public void AddExpansion(Expansion expansion)
+        public void AddExpansion(Expansion.Expansion expansion)
         {
-            if (expansion != Expansion.CivilizationVComplete)
+            if (expansion != Expansion.Expansion.CivilizationVComplete)
             {
                 _Expansions.Add(expansion);
-                if (expansion == Expansion.GodsAndKings || expansion == Expansion.BraveNewWorld)
+                if (expansion == Expansion.Expansion.GodsAndKings || expansion == Expansion.Expansion.BraveNewWorld)
                 {
                     SetPropertiesForExpansions();
                 }
-                if (_Expansions.IsSupersetOf(Expansion.All))
-                    _Expansions.Add(Expansion.CivilizationVComplete);
+                if (_Expansions.IsSupersetOf(Expansion.Expansion.All))
+                    _Expansions.Add(Expansion.Expansion.CivilizationVComplete);
             }
         }
 
@@ -138,17 +137,17 @@ namespace MRobot.CivilizationV.Save
             StartingEra = GameEraProps.Expansions;
         }
 
-        public void RemoveExpansion(Expansion expansion)
+        public void RemoveExpansion(Expansion.Expansion expansion)
         {
-            if (expansion != Expansion.CivilizationVComplete && expansion != Expansion.Upgrade1 && expansion != Expansion.Mongolia)
+            if (expansion != Expansion.Expansion.CivilizationVComplete && expansion != Expansion.Expansion.Upgrade1 && expansion != Expansion.Expansion.Mongolia)
             {
                 _Expansions.Remove(expansion);
                 if (!this.HasGnkOrBnw)
                 {
                     SetPropertiesForVanilla();
                 }
-                if (!_Expansions.IsSupersetOf(Expansion.All))
-                    _Expansions.Remove(Expansion.CivilizationVComplete);
+                if (!_Expansions.IsSupersetOf(Expansion.Expansion.All))
+                    _Expansions.Remove(Expansion.Expansion.CivilizationVComplete);
             }
         }
 
@@ -162,7 +161,7 @@ namespace MRobot.CivilizationV.Save
 
         public bool HasGnkOrBnw
         {
-            get { return _Expansions.Contains(Expansion.GodsAndKings) || _Expansions.Contains(Expansion.BraveNewWorld); }
+            get { return _Expansions.Contains(Expansion.Expansion.GodsAndKings) || _Expansions.Contains(Expansion.Expansion.BraveNewWorld); }
         }
 
         public bool HasDlcCiv
@@ -170,11 +169,11 @@ namespace MRobot.CivilizationV.Save
             get
             {
                 return _Expansions.Any(e =>
-                    e == Expansion.Babylon ||
-                    e == Expansion.Denmark ||
-                    e == Expansion.Korea ||
-                    e == Expansion.Polynesia ||
-                    e == Expansion.SpainAndInca);
+                    e == Expansion.Expansion.Babylon ||
+                    e == Expansion.Expansion.Denmark ||
+                    e == Expansion.Expansion.Korea ||
+                    e == Expansion.Expansion.Polynesia ||
+                    e == Expansion.Expansion.SpainAndInca);
             }
         }
 

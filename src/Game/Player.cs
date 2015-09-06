@@ -1,11 +1,7 @@
-﻿using MRobot.CivilizationV.Civs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using MRobot.Civilization.Civs;
 
-namespace MRobot.CivilizationV.Game
+namespace MRobot.Civilization.Game
 {
     public class Player
     {

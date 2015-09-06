@@ -1,11 +1,6 @@
-﻿using MRobot.CivilizationV.Game.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game
+namespace MRobot.Civilization.Game
 {
     public enum GamePace
     {

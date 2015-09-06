@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Expansion;
+using MRobot.Civilization.Game.Maps.Enums;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Game.Maps
 {
     public partial class Map : IExpandable
     {
         const int MaxCityStates = 58;
 
-        internal Map(string name, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
+        internal Map(string name, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion.Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
         {
             Name = name;
             Path = saveName;
@@ -34,7 +33,7 @@ namespace MRobot.CivilizationV.Game.Maps
 
         public SaveString Path { get; private set; }
 
-        public Expansion Requirement { get; private set; }
+        public Expansion.Expansion Requirement { get; private set; }
 
         private GameProperty<MapSize> _Size;
         public IGamePropertyReadOnly<MapSize> Size { get { return _Size; } }

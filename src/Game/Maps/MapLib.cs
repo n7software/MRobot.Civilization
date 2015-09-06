@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Game.Maps.Enums;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Game.Maps
 {
     public partial class Map
     {
@@ -37,7 +36,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Africa Scrambled",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Duel, MapSize.Small, MapSize.Standard, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -58,7 +57,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Amazon",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\Amazon.lua",
-                    requirement: Expansion.ExplorersMapPack
+                    requirement: Expansion.Expansion.ExplorersMapPack
                 );
             }
         }
@@ -70,7 +69,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Amazon Plus",
                     saveName: @"Assets\DLC\Expansion\Maps\Amazon_XP.lua",
-                    requirement: Expansion.GodsAndKings
+                    requirement: Expansion.Expansion.GodsAndKings
                 );
             }
         }
@@ -104,7 +103,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Arborea",
                     saveName: @"Assets\DLC\Expansion\Maps\Arborea.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: MapPropertyLib.StandardSetPlus
                     (
                         new Tuple<int, GameProperty> (3, MapPropertyLib.SeaLevelProp),
@@ -143,7 +142,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Australia Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Duel, MapSize.Small, MapSize.Standard, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -163,7 +162,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Bering Strait",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\BeringStrait.Civ5Map",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Standard)
                 );
             }
@@ -176,7 +175,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Boreal",
                     saveName: @"Assets\DLC\Expansion\Maps\Boreal.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: new GameProperty[]
                     {
                         MapPropertyLib.WorldAgeProp,
@@ -194,7 +193,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "British Isles",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\BritishIsles.Civ5Map",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Standard)
                 );
             }
@@ -206,7 +205,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Canada Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Tiny, MapSize.Small, MapSize.Standard, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -226,7 +225,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Caribbean",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\Caribbean.Civ5Map",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Standard)
                 );
             }
@@ -251,7 +250,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Continents Plus",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\ContinentsPlus.lua",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapProperties: MapPropertyLib.StandardSetWithSeaLevel
                 );
             }
@@ -264,7 +263,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Donut",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\Donut.lua",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapProperties: new GameProperty[] { MapPropertyLib.CenterRegionProp }
                 );
             }
@@ -295,7 +294,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Earth Scrambled",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
                         { MapSize.Duel, @"Assets\DLC\DLC_SP_Maps_2\Maps\Random_Earth_Duel.Civ5Map" },
@@ -315,7 +314,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "East Asia Scrambled",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Small, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -333,7 +332,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Eastern United States",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\EasternUnitedStates.Civ5Map",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Standard)
                 );
             }
@@ -346,7 +345,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Europe",
                     saveName: @"Assets\DLC\Expansion\Maps\Europe.lua",
-                    requirement: Expansion.GodsAndKings
+                    requirement: Expansion.Expansion.GodsAndKings
                 );
             }
         }
@@ -390,7 +389,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Frontier",
                     saveName: @"Assets\DLC\Expansion\Maps\Frontier.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: MapPropertyLib.StandardSetPlus
                     (
                         new Tuple<int, GameProperty> (3, MapPropertyLib.SeaLevelProp),
@@ -418,7 +417,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Great Plains Plus",
                     saveName: @"Assets\DLC\Expansion\Maps\Great_Plains_XP.lua",
-                    requirement: Expansion.GodsAndKings
+                    requirement: Expansion.Expansion.GodsAndKings
                 );
             }
         }
@@ -430,14 +429,14 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Hemispheres",
                     saveName: @"Assets\DLC\Expansion\Maps\Hemispheres.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: new GameProperty[]
                     {
                         MapPropertyLib.WorldAgeProp,
                         MapPropertyLib.TemperatureProp,
                         MapPropertyLib.RainfallProp,
                         MapPropertyLib.ResourcesProp,
-                        new GameProperty("Tiny Islands", Maps.TinyIslands.Various, EnumDefinitions.TinyIslandsAsDict),
+                        new GameProperty("Tiny Islands", Enums.TinyIslands.Various, EnumDefinitions.TinyIslandsAsDict),
                         MapPropertyLib.TeamSettingProp,
                     }
                 );
@@ -498,7 +497,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Italy Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Small, MapSize.Standard),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -515,7 +514,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Japan Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Duel, MapSize.Small),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -533,7 +532,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Japanese Mainland",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\JapaneseMainland.Civ5Map",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Tiny)
                 );
             }
@@ -565,7 +564,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Large Islands",
                     saveName: @"Assets\DLC\Expansion\Maps\Large_Islands.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: MapPropertyLib.StandardSet
                 );
             }
@@ -599,7 +598,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Middle East Scrambled",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Duel, MapSize.Tiny, MapSize.Small, MapSize.Standard, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -619,7 +618,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "North America Scrambled",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
                         { MapSize.Duel, @"Assets\DLC\DLC_SP_Maps_2\Maps\Random_North_America_Duel.Civ5Map" },
@@ -651,7 +650,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Oceania",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     saveName: @"Assets\DLC\DLC_SP_Maps_2\Maps\Script_Oceania.lua",
                     mapProperties: new GameProperty[] 
                     {
@@ -694,7 +693,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Pangaea Plus",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\PangaeaPlus.lua",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapProperties: MapPropertyLib.StandardSetWithSeaLevel
                 );
             }
@@ -707,7 +706,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Rainforest",
                     saveName: @"Assets\DLC\Expansion\Maps\Rainforest.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: MapPropertyLib.StandardSetPlus
                     (
                         new Tuple<int, GameProperty> (3, MapPropertyLib.SeaLevelProp), 
@@ -769,7 +768,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Sandstorm",
                     saveName: @"Assets\DLC\DLC_SP_Maps\Maps\Sandstorm.lua",
-                    requirement: Expansion.ExplorersMapPack,
+                    requirement: Expansion.Expansion.ExplorersMapPack,
                     mapProperties: new GameProperty[]
                     {
                         MapPropertyLib.WorldAgeProp,
@@ -787,7 +786,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Scandinavia Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Small, MapSize.Standard, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -806,7 +805,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Shuffle",
                     saveName: @"Assets\DLC\Expansion\Maps\Shuffle.lua",
-                    requirement: Expansion.GodsAndKings
+                    requirement: Expansion.Expansion.GodsAndKings
                 );
             }
         }
@@ -847,7 +846,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Small Continents Plus",
                     saveName: @"Assets\DLC\DLC_SP_Maps_2\Maps\Script_Small_Continents_Plus.lua",
-                    requirement: Expansion.ScrambledContinents,
+                    requirement: Expansion.Expansion.ScrambledContinents,
                     mapProperties: MapPropertyLib.StandardSetWithSeaLevel
                 );
             }
@@ -872,7 +871,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 (
                     name: "Tilted Axis",
                     saveName: @"Assets\DLC\Expansion\Maps\Tilted_Axis.lua",
-                    requirement: Expansion.GodsAndKings,
+                    requirement: Expansion.Expansion.GodsAndKings,
                     mapProperties: new GameProperty[] 
                     {
                         MapPropertyLib.WorldAgeProp,
@@ -909,7 +908,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Turkey Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Small, MapSize.Standard, MapSize.Large),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -927,7 +926,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "United Kingdom Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Tiny, MapSize.Standard),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {
@@ -956,7 +955,7 @@ namespace MRobot.CivilizationV.Game.Maps
                 return new Map
                 (
                     name: "Western Europe Scrambled",
-                    requirement: Expansion.ScrambledNations,
+                    requirement: Expansion.Expansion.ScrambledNations,
                     mapSize: MapPropertyLib.NonStandardMapSizeProp(MapSize.Small, MapSize.Standard),
                     sizedMaps: new Dictionary<MapSize, SaveString>()
                     {

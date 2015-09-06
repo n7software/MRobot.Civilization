@@ -1,6 +1,7 @@
-﻿using MRobot.CivilizationV.Color;
-using System;
-namespace MRobot.CivilizationV.Civs
+﻿using MRobot.Civilization.Color;
+using MRobot.Civilization.Expansion;
+
+namespace MRobot.Civilization.Civs
 {
     public interface ICivilization : IExpandable, ISaveItem
     {

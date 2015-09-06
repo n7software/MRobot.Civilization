@@ -1,14 +1,9 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Civs;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Save
 {
     public partial class GameConfig
     {
@@ -100,7 +95,7 @@ namespace MRobot.CivilizationV.Save
             output.WritePlayerTypeSection();
             output.WritePlayerSlotsSection();
             output.WritePlayerTeamsSection();
-            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansion.BraveNewWorld));
+            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansion.Expansion.BraveNewWorld));
 
             WriteCivilizationsSection(output);
 
@@ -184,7 +179,7 @@ namespace MRobot.CivilizationV.Save
             output.WriteEmptyBlocks(2);
             #endregion
 
-            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansion.BraveNewWorld));
+            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansion.Expansion.BraveNewWorld));
 
             #region Nothing Important
 
@@ -375,7 +370,7 @@ namespace MRobot.CivilizationV.Save
                 output.WriteGamePreference("NO_RELIGION", NoReligion);
             }
 
-            if (_Expansions.Contains(Expansion.BraveNewWorld))
+            if (_Expansions.Contains(Expansion.Expansion.BraveNewWorld))
             {
                 output.WriteGamePreference("NO_LEAGUES", NoLeagues);
                 output.WriteGamePreference("NO_CULTURE_OVERVIEW_UI", NoCultureOverviewUI);
@@ -455,7 +450,7 @@ namespace MRobot.CivilizationV.Save
             int settingCount = 24;
             if (HasGnkOrBnw)
                 settingCount += 2; //Religion and Espionage settings
-            if (_Expansions.Contains(Expansion.BraveNewWorld))
+            if (_Expansions.Contains(Expansion.Expansion.BraveNewWorld))
                 settingCount += 2; //Culture overview UI and World Congress settings
             return settingCount;
         }

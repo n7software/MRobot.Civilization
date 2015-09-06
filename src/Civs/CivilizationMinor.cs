@@ -1,12 +1,6 @@
-﻿using MRobot.CivilizationV.Color;
-using MRobot.CivilizationV.Game;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MRobot.Civilization.Color;
 
-namespace MRobot.CivilizationV.Civs
+namespace MRobot.Civilization.Civs
 {
     public partial class CivilizationMinor : BaseSaveItem, ICivilization
     {
@@ -24,7 +18,7 @@ namespace MRobot.CivilizationV.Civs
 
         public Leader Leader { get; set; }
 
-        public Expansion Requirement
+        public Expansion.Expansion Requirement
         {
             get { return null; }
         }

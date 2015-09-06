@@ -1,15 +1,11 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Color;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Game;
+using MRobot.Civilization.Game.Maps.Enums;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Save
 {
     internal static class SaveHelpers
     {
@@ -46,8 +42,8 @@ namespace MRobot.CivilizationV.Save
         internal static byte[] GetExpectedCrazyMapSizeBytes(GameConfig gameSave)
         {
             MapSize mapSize = gameSave.Map.Size.Value;
-            bool GodsAndKings = gameSave.Expansions.Contains(Expansion.GodsAndKings);
-            bool BraveNewWorld = gameSave.Expansions.Contains(Expansion.BraveNewWorld);
+            bool GodsAndKings = gameSave.Expansions.Contains(Expansion.Expansion.GodsAndKings);
+            bool BraveNewWorld = gameSave.Expansions.Contains(Expansion.Expansion.BraveNewWorld);
 
             using(var stream = new MemoryStream())
             using (var writer = new BinaryWriter(stream))
