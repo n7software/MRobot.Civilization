@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MRobot.CivilizationV
 {
-    public interface ISaveItem
+    public enum PlayerType
     {
-        SaveString SaveName { get; }
+        Human = 3,
+        AI = 1,
+        None = 4,
+        Unknown = 2
     }
 }

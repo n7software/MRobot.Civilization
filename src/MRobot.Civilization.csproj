@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MRobot.Civilization</RootNamespace>
     <AssemblyName>MRobot.Civilization</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +29,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -46,68 +44,80 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSaveItem.cs" />
-    <Compile Include="Civs\Civilization.cs" />
-    <Compile Include="Civs\CivilizationLib.cs" />
-    <Compile Include="Civs\CivilizationMinor.cs" />
-    <Compile Include="Civs\ICivilization.cs" />
-    <Compile Include="Civs\Leader.cs" />
-    <Compile Include="Civs\LeaderLib.cs" />
-    <Compile Include="Color\PlayerColor.cs">
+    <Compile Include="Base\Civilization.cs" />
+    <Compile Include="Base\MapSize.cs" />
+    <Compile Include="Civ5\Civilization.cs" />
+    <Compile Include="Civ5\DefaultCivilizations.cs" />
+    <Compile Include="Civ5\CivilizationMinor.cs" />
+    <Compile Include="Civ5\ICivilization.cs" />
+    <Compile Include="Base\Leader.cs" />
+    <Compile Include="Civ5\DefaultLeaders.cs" />
+    <Compile Include="Base\PlayerColor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Color\PlayerColorLib.cs">
+    <Compile Include="Civ5\DefaultPlayerColors.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Civ5\GameConfig.cs" />
+    <Compile Include="Civ5\Map.cs" />
+    <Compile Include="Civ5\MapPropertyLib.cs" />
+    <Compile Include="Civ5\Player.cs" />
+    <Compile Include="Civ5\PlayerDifficulty.cs" />
     <Compile Include="Exceptions.cs" />
-    <Compile Include="Expansion\Expansion.cs">
+    <Compile Include="Civ5\Expansion\Expansion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ExpansionLib.cs">
+    <Compile Include="Civ5\Expansion\ExpansionLib.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\IExpandable.cs" />
-    <Compile Include="Expansion\Mod.cs" />
-    <Compile Include="Game\GameEra.cs" />
-    <Compile Include="Game\GamePace.cs" />
-    <Compile Include="Game\Maps\Enums\BodiesOfWater.cs" />
-    <Compile Include="Game\Maps\Enums\IsthmusWidth.cs" />
-    <Compile Include="Game\Maps\Enums\LandShape.cs" />
-    <Compile Include="Game\Maps\Enums\LandType.cs" />
-    <Compile Include="Game\Maps\Enums\EnumDefinitions.cs" />
-    <Compile Include="Game\Maps\Enums\Landmass.cs" />
-    <Compile Include="Game\Maps\Enums\MountainDensity.cs" />
-    <Compile Include="Game\Maps\Enums\MountainPattern.cs" />
-    <Compile Include="Game\Maps\Enums\Ocean.cs" />
-    <Compile Include="Game\Maps\Enums\TeamSetting.cs" />
-    <Compile Include="Game\Maps\Enums\Terrain.cs" />
-    <Compile Include="Game\Maps\Enums\TinyIslands.cs" />
-    <Compile Include="Game\Maps\Enums\WaterSetting.cs" />
-    <Compile Include="Game\Maps\Map.cs" />
-    <Compile Include="Game\Maps\MapLib.cs" />
-    <Compile Include="Game\Maps\Enums\MapSize.cs" />
-    <Compile Include="Game\GameProperty.cs" />
-    <Compile Include="Game\Maps\MapPropertyLib.cs" />
-    <Compile Include="Game\Player.cs" />
-    <Compile Include="Game\PlayerDifficulty.cs" />
-    <Compile Include="Game\GameMode.cs" />
-    <Compile Include="Game\PlayerType.cs" />
-    <Compile Include="Game\Maps\Enums\Rainfall.cs" />
-    <Compile Include="Game\Maps\Enums\Resources.cs" />
-    <Compile Include="Game\Maps\Enums\SeaLevel.cs" />
-    <Compile Include="Game\Maps\Enums\Temperature.cs" />
-    <Compile Include="Game\Maps\Enums\WorldAge.cs" />
+    <Compile Include="Civ5\Expansion\IExpandable.cs" />
+    <Compile Include="Civ5\Expansion\Mod.cs" />
+    <Compile Include="Civ5\Game\GameEra.cs" />
+    <Compile Include="Civ5\Game\GamePace.cs" />
+    <Compile Include="Civ5\MapEnums\BodiesOfWater.cs" />
+    <Compile Include="Civ5\MapEnums\IsthmusWidth.cs" />
+    <Compile Include="Civ5\MapEnums\LandShape.cs" />
+    <Compile Include="Civ5\MapEnums\LandType.cs" />
+    <Compile Include="Civ5\MapEnums\Landmass.cs" />
+    <Compile Include="Civ5\MapEnums\MountainDensity.cs" />
+    <Compile Include="Civ5\MapEnums\MountainPattern.cs" />
+    <Compile Include="Civ5\MapEnums\Ocean.cs" />
+    <Compile Include="Civ5\MapEnums\TeamSetting.cs" />
+    <Compile Include="Civ5\MapEnums\Terrain.cs" />
+    <Compile Include="Civ5\MapEnums\TinyIslands.cs" />
+    <Compile Include="Civ5\MapEnums\WaterSetting.cs" />
+    <Compile Include="Base\Map.cs" />
+    <Compile Include="Civ5\DefaultMaps.cs" />
+    <Compile Include="Civ5\MapSize.cs" />
+    <Compile Include="GameProperty.cs" />
+    <Compile Include="Base\MapPropertyLib.cs" />
+    <Compile Include="Base\Player.cs" />
+    <Compile Include="Base\PlayerDifficulty.cs" />
+    <Compile Include="Base\GameMode.cs" />
+    <Compile Include="Base\PlayerType.cs" />
+    <Compile Include="Civ5\MapEnums\Rainfall.cs" />
+    <Compile Include="Civ5\MapEnums\Resources.cs" />
+    <Compile Include="Civ5\MapEnums\SeaLevel.cs" />
+    <Compile Include="Civ5\MapEnums\Temperature.cs" />
+    <Compile Include="Civ5\MapEnums\WorldAge.cs" />
     <Compile Include="ISaveItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveNumber.cs" />
     <Compile Include="SaveString.cs" />
-    <Compile Include="Save\GameConfig.cs" />
-    <Compile Include="Save\Load.cs" />
-    <Compile Include="Save\Save.cs" />
-    <Compile Include="Save\GameSave.cs" />
-    <Compile Include="Save\SaveHelpers.cs" />
-    <Compile Include="Save\SaveReader.cs" />
-    <Compile Include="Save\SaveWriter.cs" />
-    <Compile Include="Util.cs" />
+    <Compile Include="Base\GameConfig.cs" />
+    <Compile Include="Civ5\Save\Load.cs" />
+    <Compile Include="Civ5\Save\Save.cs" />
+    <Compile Include="Base\GameSave.cs" />
+    <Compile Include="SaveHelpers.cs" />
+    <Compile Include="SaveReader.cs" />
+    <Compile Include="SaveWriter.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cert.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CivBE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -117,4 +127,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="AfterCompile">
+    <Exec Command="&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe&quot; sign /f &quot;$(ProjectDir)cert.pfx&quot; /p GlaCier3G /v &quot;$(ProjectDir)obj\$(ConfigurationName)\$(TargetFileName)&quot;" />
+  </Target>
 </Project>
