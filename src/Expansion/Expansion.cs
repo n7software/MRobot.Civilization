@@ -6,27 +6,30 @@ namespace MRobot.Civilization.Expansion
     public partial class Expansion : IEquatable<Expansion>, ISaveItem
     {
 
-        internal Expansion(string name, string saveName, string steamId, byte[] prefixBytes, int id = 0, bool isFullExpansion = false)
+        internal Expansion(string name, string saveName, string steamId, int gameSteamId, byte[] prefixBytes, int id = 0, bool isFullExpansion = false)
         {
             Id = id;
             Name = name;
             SaveName = saveName;
             SteamId = steamId;
+            GameSteamId = gameSteamId;
             IsFullExpansion = isFullExpansion;
             SaveId = (byte[])prefixBytes.Clone();
         }
 
-        public int Id { get; private set; }
+        public int Id { get; }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
-        public string SteamId { get; private set; }
+        public string SteamId { get; }
 
-        public bool IsFullExpansion { get; private set; }
+        public int GameSteamId { get; }
 
-        public SaveString SaveName { get; private set; }
+        public bool IsFullExpansion { get; }
 
-        public byte[] SaveId { get; private set; }
+        public SaveString SaveName { get; }
+
+        public byte[] SaveId { get; }
 
         public override int GetHashCode()
         {

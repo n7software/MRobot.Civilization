@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Expansion\IExpandable.cs" />
     <Compile Include="Expansion\Mod.cs" />
+    <Compile Include="GameSteamIds.cs" />
     <Compile Include="Game\GameEra.cs" />
     <Compile Include="Game\GamePace.cs" />
     <Compile Include="Game\Maps\Enums\BodiesOfWater.cs" />
