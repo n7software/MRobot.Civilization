@@ -1,14 +1,13 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Color;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
+﻿using MRobot.Civilization.Civs;
+using MRobot.Civilization.Color;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using MRobot.Civilization.Civ5.Game;
 
-namespace MRobot.CivilizationV
+namespace MRobot.Civilization
 {
     class SaveReader : IDisposable
     {
@@ -169,7 +168,7 @@ namespace MRobot.CivilizationV
 
         public GamePace ReadPace()
         {
-            return (GamePace)(ReadEnum(typeof(GamePace)) ?? Game.GamePace.Quick);
+            return (GamePace)(ReadEnum(typeof(GamePace)) ?? GamePace.Quick);
         }
 
         public MapSize ReadMapSize()

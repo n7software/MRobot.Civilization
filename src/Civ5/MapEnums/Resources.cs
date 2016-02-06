@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum Resources
     {
@@ -18,20 +14,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     static partial class EnumDefinitions
     {
-        public static IDictionary<object, string> ResourcesAsDict
-        {
-            get
-            {
-                return new Dictionary<object, string>()
-                {
-                    { Resources.Sparse,             "Sparse" },
-                    { Resources.Standard,           "Standard" },
-                    { Resources.Abundant,           "Abundant" },
-                    { Resources.LegendaryStart,     "Legendary Start" },
-                    { Resources.StrategicBalance,   "Strategic Balance" },
-                    { Resources.Random,             "Random" },
-                };
-            }
-        }
+        public static IDictionary<object, string> ResourcesAsDict => Utils.GetEnumAsDict<Resources>();
     }
 }

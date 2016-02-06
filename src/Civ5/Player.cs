@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MRobot.Civilization.Base;
 
-namespace MRobot.CivilizationV.Civ5
+namespace MRobot.Civilization.Civ5
 {
     public class Player : Base.Player
     {
         public Player()
-            : base(Utils.GetEnumAsDict<Base.PlayerDifficulty>())
+            : base(Utils.GetEnumAsDict<PlayerDifficulty>())
         { }
 
         public ICivilization Civilization { get; set; }

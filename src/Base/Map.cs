@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Base
+namespace MRobot.Civilization.Base
 {
-    public abstract class Map<MapSizeEnum> : IExpandable
+    public abstract class Map: IExpandable
     {
-        internal Map(string name, GameProperty<MapSizeEnum> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSizeEnum, SaveString> sizedMaps = null)
+        internal Map(string name, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
         {
             Name = name;
             Path = saveName;
@@ -18,7 +18,7 @@ namespace MRobot.CivilizationV.Base
             else _MapProperties = new List<GameProperty>();
 
             if (sizedMaps != null)
-                SizedMaps = new Dictionary<MapSizeEnum, SaveString>(sizedMaps);
+                SizedMaps = new Dictionary<MapSize, SaveString>(sizedMaps);
 
             this._Size = mapSize;
         }
@@ -29,10 +29,11 @@ namespace MRobot.CivilizationV.Base
 
         public Expansion Requirement { get; private set; }
 
-        protected GameProperty<MapSizeEnum> _Size;
-        public IGamePropertyReadOnly<MapSizeEnum> Size { get { return _Size; } }
+        protected GameProperty<MapSize> _Size;
 
-        private IDictionary<MapSizeEnum, SaveString> SizedMaps;
+        public IGamePropertyReadOnly<MapSize> Size { get { return _Size; } }
+
+        private IDictionary<MapSize, SaveString> SizedMaps;
 
         private ICollection<GameProperty> _MapProperties;
 
@@ -41,26 +42,24 @@ namespace MRobot.CivilizationV.Base
             get { return new List<IGameProperty>(_MapProperties); }
         }
 
-        public virtual void SetMapSize(MapSizeEnum mapSize)
+        protected virtual void SetMapSize(MapSize mapSize)
         {
             this._Size.Value = mapSize;
             AdjustMapPathBySize(mapSize);
-
         }
 
-        protected void AdjustMapPathBySize(MapSizeEnum mapSize)
+        protected void AdjustMapPathBySize(MapSize mapSize)
         {
             if (SizedMaps != null && SizedMaps.Count > 0)
                 Path = SizedMaps[mapSize];
         }
-
-
+        
         internal IEnumerable<SaveString> AllPossiblePaths
         {
             get
             {
                 var paths = new List<SaveString>();
-                if (!String.IsNullOrEmpty(Path))
+                if (!string.IsNullOrEmpty(Path))
                     paths.Add(Path);
                 if(SizedMaps != null)
                     paths.AddRange(SizedMaps.Values);

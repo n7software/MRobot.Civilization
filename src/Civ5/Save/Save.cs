@@ -1,14 +1,7 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Game;
-using MRobot.CivilizationV.Game.Maps;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Civ5.Save
 {
     public partial class GameConfig
     {

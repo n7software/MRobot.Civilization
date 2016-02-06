@@ -1,12 +1,11 @@
-﻿using MRobot.CivilizationV.Base;
-using MRobot.CivilizationV.Game;
+﻿using MRobot.Civilization.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Civ5
+namespace MRobot.Civilization.Civ5
 {
     public abstract class CivilizationMinor : BaseSaveItem, ICivilization
     {

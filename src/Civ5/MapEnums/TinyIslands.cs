@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum TinyIslands
     {
@@ -17,19 +13,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     static partial class EnumDefinitions
     {
-        public static IDictionary<object, string> TinyIslandsAsDict
-        {
-            get
-            {
-                return new Dictionary<object, string>()
-                {
-                    { TinyIslands.No,       "No Tiny Islands" },
-                    { TinyIslands.Few,      "Few Tiny Islands" },
-                    { TinyIslands.Various,  "Various Tiny Islands" },
-                    { TinyIslands.Many,     "Many Tiny Islands" },
-                    { TinyIslands.Random,   "Random" }
-                };
-            }
-        }
+        public static IDictionary<object, string> TinyIslandsAsDict => Utils.GetEnumAsDict<TinyIslands>();
     }
 }

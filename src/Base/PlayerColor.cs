@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Base
+namespace MRobot.Civilization.Base
 {
     public partial class PlayerColor : BaseSaveItem
     {

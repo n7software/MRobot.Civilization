@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum IsthmusWidth
     {
@@ -16,18 +12,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     static partial class EnumDefinitions
     {
-        public static IDictionary<object, string> IsthmusWidthAsDict
-        {
-            get
-            {
-                return new Dictionary<object, string>()
-                {
-                    { IsthmusWidth.TwoPlotsWide,    "2 Plots Wide" },
-                    { IsthmusWidth.ThreePlotsWide,  "3 Plots Wide" },
-                    { IsthmusWidth.FourPlotsWide,   "4 Plots Wide" },
-                    { IsthmusWidth.Random,          "Random" }
-                };
-            }
-        }
+        public static IDictionary<object, string> IsthmusWidthAsDict => Utils.GetEnumAsDict<IsthmusWidth>();
     }
 }

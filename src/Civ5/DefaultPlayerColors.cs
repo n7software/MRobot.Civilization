@@ -1,11 +1,11 @@
-﻿using MRobot.CivilizationV.Civs;
+﻿using MRobot.Civilization.Civs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Civ5
+namespace MRobot.Civilization.Civ5
 {
     public class DefaultPlayerColors
     {

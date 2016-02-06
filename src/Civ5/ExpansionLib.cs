@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Base;
 
-namespace MRobot.CivilizationV
+namespace MRobot.Civilization.Civ5
 {
-    public partial class Expansion
+    public static class ExpansionLib
     {
         private static IList<Expansion> _all;
         public static IList<Expansion> All
@@ -14,7 +12,7 @@ namespace MRobot.CivilizationV
             get
             {
                 if (_all == null)
-                    _all = Utils.GetStaticFieldsOfType<Expansion>();
+                    _all = Utils.GetStaticFieldsOfType<Expansion>(typeof(ExpansionLib));
                 return _all;
             }
         }

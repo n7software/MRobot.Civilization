@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Base
+namespace MRobot.Civilization.Base
 {
     public abstract class Civilization : ISaveItem, IExpandable
     {
@@ -23,7 +23,7 @@ namespace MRobot.CivilizationV.Base
         {
             get
             {
-                if (String.IsNullOrEmpty(SaveName.Value))
+                if (string.IsNullOrEmpty(SaveName.Value))
                     return "Unknown or Empty";
                 return SaveName.Value; 
             }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum LandType
     {
@@ -18,9 +14,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     partial class EnumDefinitions
     {
-        public static IDictionary<object, string> LandTypeAsDict
-        {
-            get { return EnumDefinitions.GetEnumAsDict(typeof(LandType)); }
-        }
+        public static IDictionary<object, string> LandTypeAsDict => Utils.GetEnumAsDict<LandType>();
     }
 }

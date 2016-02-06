@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV
+namespace MRobot.Civilization
 {
     public class SaveNumber : IEquatable<SaveNumber>
     {

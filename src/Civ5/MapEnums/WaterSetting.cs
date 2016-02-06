@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum WaterSetting
     {
@@ -18,21 +14,7 @@ namespace MRobot.CivilizationV.Game.Maps
 
     static partial class EnumDefinitions
     {
-        public static IDictionary<object, string> WaterSettingAsDict
-        {
-            get
-            {
-                return new Dictionary<object, string>()
-                {
-                    { WaterSetting.Rivers,        "Rivers" },
-                    { WaterSetting.SmallLakes,    "Small Lakes" },
-                    { WaterSetting.Seas,          "Seas" },
-                    { WaterSetting.RiversAndSeas, "Rivers And Seas" },
-                    { WaterSetting.Dry,           "Dry" },
-                    { WaterSetting.Random,        "Random" },
-                };
-            }
-        }
+        public static IDictionary<object, string> WaterSettingAsDict => Utils.GetEnumAsDict<WaterSetting>();
     }
 
 }

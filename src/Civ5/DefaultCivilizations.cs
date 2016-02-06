@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV.Civ5
+namespace MRobot.Civilization.Civ5
 {
 
     public sealed partial class DefaultCivilizations

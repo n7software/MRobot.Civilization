@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum MountainDensity
     {
@@ -16,9 +12,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     partial class EnumDefinitions
     {
-        public static IDictionary<object, string> MountainDensityAsDict
-        {
-            get { return EnumDefinitions.GetEnumAsDict(typeof(MountainDensity)); }
-        }
+        public static IDictionary<object, string> MountainDensityAsDict => Utils.GetEnumAsDict<MountainDensity>();
     }
 }

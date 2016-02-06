@@ -1,18 +1,10 @@
-﻿using MRobot.CivilizationV.Civs;
-using MRobot.CivilizationV.Color;
-using MRobot.CivilizationV.Game;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using MRobot.Civilization.Civ5.Game;
 
-namespace MRobot.CivilizationV.Save
+namespace MRobot.Civilization.Civ5
 {
-    public partial class GameSave : GameConfig
+    public partial class GameSave : Save.GameConfig
     {
-
         private GameSave()
             : base()
         {

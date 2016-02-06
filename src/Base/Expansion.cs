@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV
+namespace MRobot.Civilization.Base
 {
-    public partial class Expansion : IEquatable<Expansion>, ISaveItem
+    public class Expansion : IEquatable<Expansion>, ISaveItem
     {
-
         internal Expansion(string name, string saveName, string steamId, byte[] prefixBytes, int id = 0, bool isFullExpansion = false)
         {
             Id = id;
@@ -16,20 +12,20 @@ namespace MRobot.CivilizationV
             SaveName = saveName;
             SteamId = steamId;
             IsFullExpansion = isFullExpansion;
-            SaveId = (byte[])prefixBytes.Clone();
+            SaveId = prefixBytes.ToArray();
         }
 
         public int Id { get; private set; }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
         public string SteamId { get; private set; }
 
         public bool IsFullExpansion { get; private set; }
 
-        public SaveString SaveName { get; private set; }
+        public SaveString SaveName { get; }
 
-        public byte[] SaveId { get; private set; }
+        public readonly byte[] SaveId;
 
         public override int GetHashCode()
         {
@@ -39,17 +35,16 @@ namespace MRobot.CivilizationV
         public override bool Equals(object obj)
         {
             Expansion exp = obj as Expansion;
-            if (exp != null)
-                return this.Equals(exp);
-            else return false;
+
+            return exp != null && Equals(exp);
         }
 
         public bool Equals(Expansion other)
         {
             if (other == null)
                 return false;
-            else return this.Name == other.Name
-                && Enumerable.SequenceEqual(this.SaveId, other.SaveId);
+
+            return Name == other.Name && SaveId.SequenceEqual(other.SaveId);
         }
 
         public static bool operator ==(Expansion x, Expansion y)

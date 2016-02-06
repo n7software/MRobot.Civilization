@@ -1,6 +1,7 @@
 ﻿using System;
+using MRobot.Civilization.Base;
 
-namespace MRobot.CivilizationV.Civ5
+namespace MRobot.Civilization.Civ5
 {
     public interface ICivilization : IExpandable, ISaveItem
     {

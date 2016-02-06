@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MRobot.Civilization</RootNamespace>
     <AssemblyName>MRobot.Civilization</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -60,18 +62,19 @@
     </Compile>
     <Compile Include="Civ5\GameConfig.cs" />
     <Compile Include="Civ5\Map.cs" />
+    <Compile Include="Civ5\MapEnums\MapSize.cs" />
     <Compile Include="Civ5\MapPropertyLib.cs" />
     <Compile Include="Civ5\Player.cs" />
-    <Compile Include="Civ5\PlayerDifficulty.cs" />
+    <Compile Include="Civ5\PlayerDifficultyProp.cs" />
     <Compile Include="Exceptions.cs" />
-    <Compile Include="Civ5\Expansion\Expansion.cs">
+    <Compile Include="Base\Expansion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Civ5\Expansion\ExpansionLib.cs">
+    <Compile Include="Civ5\ExpansionLib.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Civ5\Expansion\IExpandable.cs" />
-    <Compile Include="Civ5\Expansion\Mod.cs" />
+    <Compile Include="Base\IExpandable.cs" />
+    <Compile Include="Base\Mod.cs" />
     <Compile Include="Civ5\Game\GameEra.cs" />
     <Compile Include="Civ5\Game\GamePace.cs" />
     <Compile Include="Civ5\MapEnums\BodiesOfWater.cs" />
@@ -88,11 +91,11 @@
     <Compile Include="Civ5\MapEnums\WaterSetting.cs" />
     <Compile Include="Base\Map.cs" />
     <Compile Include="Civ5\DefaultMaps.cs" />
-    <Compile Include="Civ5\MapSize.cs" />
+    <Compile Include="Civ5\MapSizes.cs" />
     <Compile Include="GameProperty.cs" />
     <Compile Include="Base\MapPropertyLib.cs" />
     <Compile Include="Base\Player.cs" />
-    <Compile Include="Base\PlayerDifficulty.cs" />
+    <Compile Include="Civ5\PlayerDifficulty.cs" />
     <Compile Include="Base\GameMode.cs" />
     <Compile Include="Base\PlayerType.cs" />
     <Compile Include="Civ5\MapEnums\Rainfall.cs" />
@@ -107,7 +110,7 @@
     <Compile Include="Base\GameConfig.cs" />
     <Compile Include="Civ5\Save\Load.cs" />
     <Compile Include="Civ5\Save\Save.cs" />
-    <Compile Include="Base\GameSave.cs" />
+    <Compile Include="Civ5\GameSave.cs" />
     <Compile Include="SaveHelpers.cs" />
     <Compile Include="SaveReader.cs" />
     <Compile Include="SaveWriter.cs" />

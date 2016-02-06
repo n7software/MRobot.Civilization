@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.CivilizationV
+namespace MRobot.Civilization
 {
     //Interface allows Map to return a set of immutable IMapProperties, 
     //since map properties should be changed via the Map object
@@ -23,7 +23,7 @@ namespace MRobot.CivilizationV
     public interface IGameProperty : IGameProperty<object>
     { }
 
-    class GameProperty<T> : IGameProperty<T>
+    public class GameProperty<T> : IGameProperty<T>
     {
         public GameProperty(string name, T defaultValue, IDictionary<T, string> possibleValues = null)
         {
@@ -56,7 +56,7 @@ namespace MRobot.CivilizationV
         }
     }
 
-    class GameProperty : GameProperty<object>, IGameProperty
+    public class GameProperty : GameProperty<object>, IGameProperty
     {
         public GameProperty(string name, object defaultValue, IDictionary<object, string> possibleValues = null)
             : base(name, defaultValue, possibleValues)

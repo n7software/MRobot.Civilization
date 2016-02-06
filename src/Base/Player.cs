@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MRobot.Civilization.Civ5;
 
-namespace MRobot.CivilizationV.Base
+namespace MRobot.Civilization.Base
 {
     public abstract class Player
     {

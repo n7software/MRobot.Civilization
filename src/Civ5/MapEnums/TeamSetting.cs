@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum TeamSetting
     {
@@ -15,17 +11,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     partial class EnumDefinitions
     {
-        public static IDictionary<object, string> TeamSettingAsDict
-        {
-            get
-            {
-                return new Dictionary<object, string>()
-                {
-                    { TeamSetting.StartTogether,    "Start Together" },
-                    { TeamSetting.StartSeparated,   "Start Separated" },
-                    { TeamSetting.StartAnywhere,    "Start Anywhere" }
-                };
-            }
-        }
+        public static IDictionary<object, string> TeamSettingAsDict => Utils.GetEnumAsDict<TeamSetting>();
     }
 }

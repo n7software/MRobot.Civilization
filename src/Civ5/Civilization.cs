@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MRobot.CivilizationV.Civ5
+namespace MRobot.Civilization.Civ5
 {
-
-    public class Civilization : ICivilization, Base.Civilization
+    public class Civilization : Base.Civilization
     { }
 }

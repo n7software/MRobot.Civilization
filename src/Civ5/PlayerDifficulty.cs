@@ -1,19 +1,15 @@
-﻿using MRobot.CivilizationV.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MRobot.CivilizationV.Civ5
+﻿namespace MRobot.Civilization.Civ5
 {
-    internal static class PlayerDifficultyProp
+    public enum PlayerDifficulty
     {
-        public IGameProperty<PlayerDifficulty> Default
-        {
-            get
-            {
-                return new GameProperty<PlayerDifficulty>("Difficulty", PlayerDifficulty.AI, Utils.GetEnumAsDict<PlayerDifficulty>());
-            }
-        }
+        Settler = 0,
+        Chieftain = 1,
+        Warlord = 2,
+        Prince = 3,
+        King = 4,
+        Emperor = 5,
+        Immortal = 6,
+        Diety = 7,
+        AI = 8
     }
 }

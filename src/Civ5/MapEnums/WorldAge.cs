@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MRobot.CivilizationV.Game.Maps
+namespace MRobot.Civilization.Civ5.MapEnums
 {
     public enum WorldAge
     {
@@ -16,18 +12,6 @@ namespace MRobot.CivilizationV.Game.Maps
 
     static partial class EnumDefinitions
     {
-        public static IDictionary<object, string> WorldAgeAsDict
-        {
-            get
-            {
-                return new Dictionary<object, string>()
-                {
-                    { WorldAge.ThreeBillionYears,   "3 Billion Years" },
-                    { WorldAge.FourBillionYears,    "4 Billion Years" },
-                    { WorldAge.FiveBillionYears,    "5 Billion Years" },
-                    { WorldAge.Random,              "Random" },
-                };
-            }
-        }
+        public static IDictionary<object, string> WorldAgeAsDict => Utils.GetEnumAsDict<WorldAge>();
     }
 }
