@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MRobot.Civilization.Base;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Civ5
 {
     public class Player : Base.Player
     {
         public Player()
-            : base(Utils.GetEnumAsDict<PlayerDifficulty>())
+            : base(PlayerDifficulties.DifficultyNames, PlayerDifficulties.DefaultDifficulty)
         { }
-
-        public ICivilization Civilization { get; set; }
 
         public static Player AiPlayer
         {
@@ -31,7 +30,7 @@ namespace MRobot.Civilization.Civ5
 
         public static Player Barbarian
         {
-            get { return new Player { Type = PlayerType.Unknown, Civilization = DefaultCivilizations.Unknown }; }
+            get { return new Player { Type = PlayerType.Unknown, Civilization = Civilizations.Unknown }; }
         }
     }
 }

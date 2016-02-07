@@ -1,24 +1,12 @@
-﻿using MRobot.Civilization.Civs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using MRobot.Civilization.Base;
 
-namespace MRobot.Civilization.Civ5
+namespace MRobot.Civilization.Civ5.Data
 {
-    public class DefaultPlayerColors
+    public class PlayerColors
     {
-        private static IList<PlayerColor> _All;
-        public static IList<PlayerColor> All
-        {
-            get
-            {
-                if(_All == null)
-                    _All = Utils.GetStaticFieldsOfType<PlayerColor>();
-                return _All;
-            }
-        }
+        private static IList<PlayerColor> _all;
+        public static IList<PlayerColor> All => _all ?? (_all = Utils.GetStaticFieldsOfType<PlayerColor>());
 
         public static readonly PlayerColor America = new PlayerColor("America");
         public static readonly PlayerColor Arabia = new PlayerColor("Arabia");

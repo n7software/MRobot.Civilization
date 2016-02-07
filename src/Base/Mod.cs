@@ -22,15 +22,14 @@ namespace MRobot.Civilization.Base
         public override bool Equals(object obj)
         {
             Mod exp = obj as Mod;
-            if (exp != null)
-                return this.Equals(exp);
-            else return false;
+
+            return exp != null && Equals(exp);
         }
 
         public bool Equals(Mod other)
         {
-            return this.SaveName == other.SaveName
-                && this.SaveId == other.SaveId;
+            return SaveName == other.SaveName
+                && SaveId == other.SaveId;
         }
     }
 }

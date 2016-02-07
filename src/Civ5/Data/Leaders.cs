@@ -1,24 +1,12 @@
-﻿using MRobot.Civilization.Civs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using MRobot.Civilization.Base;
 
-namespace MRobot.Civilization.Civ5
+namespace MRobot.Civilization.Civ5.Data
 {
-    public class DefaultLeaders
+    public class Leaders
     {
-        private static IList<Leader> _All;
-        public static IList<Leader> All
-        {
-            get
-            {
-                if (_All == null)
-                    _All = Utils.GetStaticFieldsOfType<Leader>();
-                return _All;
-            }
-        }
+        private static IList<Leader> _all;
+        public static IList<Leader> All => _all ?? (_all = Utils.GetStaticFieldsOfType<Leader>());
 
         public static readonly Leader Washington = new Leader("Washington");
         public static readonly Leader HarunAlRashid = new Leader("Harun al-Rashid", "HARUN_AL_RASHId");

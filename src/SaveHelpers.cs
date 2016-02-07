@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MRobot.Civilization.Civ5;
-using MRobot.Civilization.Civ5.Game;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization
 {

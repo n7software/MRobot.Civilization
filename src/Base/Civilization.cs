@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MRobot.Civilization.Base
 {
-    public abstract class Civilization : ISaveItem, IExpandable
+    public class Civilization : ICivilization
     {
         const string Prefix = "CIVILIZATION";
 

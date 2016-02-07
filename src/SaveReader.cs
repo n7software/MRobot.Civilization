@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using MRobot.Civilization.Civ5.Game;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization
 {
@@ -129,10 +129,10 @@ namespace MRobot.Civilization
             string prefix =
                 prefixParts > 0
                 ? parts.Take(prefixParts).Aggregate(assembleString)
-                : String.Empty;
+                : string.Empty;
             string val;
             if (parts.Length <= prefixParts)
-                val = String.Empty;
+                val = string.Empty;
             else val = parts.Skip(prefixParts).Aggregate(assembleString);
 
             return new SaveString(prefix, val, allCaps);

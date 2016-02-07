@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MRobot.Civilization.Base;
 using MRobot.Civilization.Civ5.MapEnums;
 
-namespace MRobot.Civilization.Civ5
+namespace MRobot.Civilization.Civ5.Data
 {
-    static class MapPropertyLib
+    static class MapProperties
     {
         public static IList<GameProperty> StandardSet => new[]
         {
@@ -17,7 +16,7 @@ namespace MRobot.Civilization.Civ5
             ResourcesProp
         };
 
-        public static IList<GameProperty> StandardSetWithSeaLevel = StandardSetPlus(new Tuple<int, GameProperty>(3, SeaLevelProp));
+        public static readonly IList<GameProperty> StandardSetWithSeaLevel = StandardSetPlus(new Tuple<int, GameProperty>(3, SeaLevelProp));
 
 
         /// <summary>

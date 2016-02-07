@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using MRobot.Civilization.Base;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Civ5.Save
 {
@@ -93,7 +95,7 @@ namespace MRobot.Civilization.Civ5.Save
             output.WritePlayerTypeSection();
             output.WritePlayerSlotsSection();
             output.WritePlayerTeamsSection();
-            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansion.BraveNewWorld));
+            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansions.BraveNewWorld));
 
             WriteCivilizationsSection(output);
 
@@ -177,7 +179,7 @@ namespace MRobot.Civilization.Civ5.Save
             output.WriteEmptyBlocks(2);
             #endregion
 
-            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansion.BraveNewWorld));
+            output.WritePlayerDifficultiesSection(this.Expansions.Contains(Expansions.BraveNewWorld));
 
             #region Nothing Important
 

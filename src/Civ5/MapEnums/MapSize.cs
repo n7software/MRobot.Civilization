@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MRobot.Civilization.Base;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Civ5.MapEnums
 {

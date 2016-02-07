@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MRobot.Civilization.Civ5;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Base
 {
@@ -11,37 +12,37 @@ namespace MRobot.Civilization.Base
     {
         const string DifficultyPropertyName = "Difficulty";
 
-        protected Player(IDictionary<PlayerDifficulty, string> difficultyNames)
+        protected Player(IDictionary<int, string> possibleDifficulties, int defaultDifficulty)
         {
-            Name = String.Empty;
-            Difficulty = new GameProperty<PlayerDifficulty>(DifficultyPropertyName, PlayerDifficulty.Chieftain);
-            DifficultyNames = difficultyNames;
-            Password = String.Empty;
+            Name = string.Empty;
+            Password = string.Empty;
             Type = PlayerType.None;
+
+            Difficulty = new GameProperty<int>(DifficultyPropertyName, defaultDifficulty, possibleDifficulties);
         }
 
-        private IDictionary<PlayerDifficulty, string> DifficultyNames;
+        public ICivilization Civilization { get; set; }
 
         public SaveString Name { get; set; }
 
-        public IGameProperty<PlayerDifficulty> Difficulty { get; private set; }
+        public IGameProperty<int> Difficulty { get; private set; }
 
-        private PlayerType _Type;
+        private PlayerType _type;
 
         public PlayerType Type 
         {
-            get { return _Type; }
+            get { return _type; }
             set
             {
-                _Type = value;
-                if (_Type == PlayerType.Human)
+                _type = value;
+                if (_type == PlayerType.Human)
                 {
                     Difficulty = new GameProperty<PlayerDifficulty>(
                         DifficultyPropertyName,
                         PlayerDifficulty.Prince,
                         DifficultyNames);
                 }
-                else if (_Type == PlayerType.AI)
+                else if (_type == PlayerType.AI)
                 {
                     Difficulty = new GameProperty<PlayerDifficulty>(
                         DifficultyPropertyName,
@@ -59,6 +60,5 @@ namespace MRobot.Civilization.Base
         public int? Team { get; set; }
 
         public SaveString Password { get; set; }
-
     }
 }

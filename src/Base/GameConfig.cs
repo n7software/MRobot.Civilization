@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MRobot.Civilization.Civ5;
-using MRobot.Civilization.Civ5.Game;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Base
 {
@@ -24,7 +24,7 @@ namespace MRobot.Civilization.Base
 
             Mods = new HashSet<Mod>();
 
-            GamePace = CreateGamePaceProperty(Civ5.Game.GamePace.Quick);
+            GamePace = CreateGamePaceProperty(Civ5.Data.GamePace.Quick);
         }
 
         protected static IGameProperty<GamePace> CreateGamePaceProperty(GamePace defaultPace)

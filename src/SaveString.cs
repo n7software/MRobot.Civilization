@@ -11,14 +11,14 @@ namespace MRobot.Civilization
     {
         public SaveString()
         {
-            Prefix = String.Empty;
-            Value = String.Empty;
+            Prefix = string.Empty;
+            Value = string.Empty;
             AllCaps = false;
         }
 
         public SaveString(string value, bool allCaps = false)
         {
-            Prefix = String.Empty;
+            Prefix = string.Empty;
             Value = value;
             AllCaps = allCaps;
         }
@@ -113,9 +113,9 @@ namespace MRobot.Civilization
         public override string ToString()
         {
             if (String.IsNullOrEmpty(Value))
-                return String.Empty;
+                return string.Empty;
 
-            string prefix = String.IsNullOrEmpty(Prefix) ? String.Empty : Prefix + "_";
+            string prefix = String.IsNullOrEmpty(Prefix) ? string.Empty : Prefix + "_";
             var str = prefix + Value;
             if (AllCaps)
                 str = str.ToUpper();

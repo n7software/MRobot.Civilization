@@ -1,7 +1,7 @@
 ﻿using System;
-using MRobot.Civilization.Civ5.Game;
+using MRobot.Civilization.Civ5.Data;
 
-namespace MRobot.Civilization.Civ5
+namespace MRobot.Civilization.Civ5.Save
 {
     public partial class GameSave : Save.GameConfig
     {

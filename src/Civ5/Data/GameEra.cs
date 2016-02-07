@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MRobot.Civilization.Civ5.Game
+namespace MRobot.Civilization.Civ5.Data
 {
     public enum GameEra
     {
@@ -16,13 +16,7 @@ namespace MRobot.Civilization.Civ5.Game
 
     static class GameEraProps
     {
-        public static IGameProperty<GameEra> Vanilla
-        {
-            get
-            {
-                return new GameProperty<GameEra>("Starting Era", GameEra.Ancient, VanillaDict);
-            }
-        }
+        public static IGameProperty<GameEra> Vanilla => new GameProperty<GameEra>("Starting Era", GameEra.Ancient, VanillaDict);
 
         private static IDictionary<GameEra, string> VanillaDict
         {

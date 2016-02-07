@@ -13,9 +13,7 @@ namespace MRobot.Civilization.Base
             Name = name;
             Path = saveName;
             Requirement = requirement;
-            if (mapProperties != null)
-                _MapProperties = new List<GameProperty>(mapProperties);
-            else _MapProperties = new List<GameProperty>();
+            _MapProperties = new List<GameProperty>(mapProperties ?? new GameProperty[0]);
 
             if (sizedMaps != null)
                 SizedMaps = new Dictionary<MapSize, SaveString>(sizedMaps);

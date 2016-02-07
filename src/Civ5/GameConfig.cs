@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MRobot.Civilization.Base;
-using MRobot.Civilization.Civ5.Game;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Civ5
 {
@@ -11,7 +11,7 @@ namespace MRobot.Civilization.Civ5
     {
         public GameConfig()
         {
-            Map = DefaultMaps.Continents;
+            Map = Maps.Continents;
 
             Players = new Player[SaveHelpers.StandardSectionBlockCount];
             for (int i = 0; i < SaveHelpers.MaxPlayers; i++)
@@ -20,8 +20,8 @@ namespace MRobot.Civilization.Civ5
                 Players[i] = Player.CityState;
             Players[Players.Length - 1] = Player.Barbarian;
 
-            _Expansions.Add(ExpansionLib.Mongolia);
-            _Expansions.Add(ExpansionLib.Upgrade1);
+            _Expansions.Add(Data.Expansions.Mongolia);
+            _Expansions.Add(Data.Expansions.Upgrade1);
 
             CulturalVictory = true;
             DiplomaticVictory = true;
@@ -97,15 +97,15 @@ namespace MRobot.Civilization.Civ5
         /// </summary>
         public void AddExpansion(Expansion expansion)
         {
-            if (expansion != ExpansionLib.CivilizationVComplete)
+            if (expansion != Data.Expansions.CivilizationVComplete)
             {
                 _Expansions.Add(expansion);
-                if (expansion == ExpansionLib.GodsAndKings || expansion == ExpansionLib.BraveNewWorld)
+                if (expansion == Data.Expansions.GodsAndKings || expansion == Data.Expansions.BraveNewWorld)
                 {
                     SetPropertiesForExpansions();
                 }
-                if (_Expansions.IsSupersetOf(ExpansionLib.All))
-                    _Expansions.Add(ExpansionLib.CivilizationVComplete);
+                if (_Expansions.IsSupersetOf(Data.Expansions.All))
+                    _Expansions.Add(Data.Expansions.CivilizationVComplete);
             }
         }
 
@@ -117,15 +117,15 @@ namespace MRobot.Civilization.Civ5
 
         public void RemoveExpansion(Expansion expansion)
         {
-            if (expansion != ExpansionLib.CivilizationVComplete && expansion != ExpansionLib.Upgrade1 && expansion != ExpansionLib.Mongolia)
+            if (expansion != Data.Expansions.CivilizationVComplete && expansion != Data.Expansions.Upgrade1 && expansion != Data.Expansions.Mongolia)
             {
                 _Expansions.Remove(expansion);
                 if (!this.HasGnkOrBnw)
                 {
                     SetPropertiesForVanilla();
                 }
-                if (!_Expansions.IsSupersetOf(ExpansionLib.All))
-                    _Expansions.Remove(ExpansionLib.CivilizationVComplete);
+                if (!_Expansions.IsSupersetOf(Data.Expansions.All))
+                    _Expansions.Remove(Data.Expansions.CivilizationVComplete);
             }
         }
 
@@ -135,18 +135,18 @@ namespace MRobot.Civilization.Civ5
             StartingEra = GameEraProps.Vanilla;
         }
 
-        public bool HasGnkOrBnw => _Expansions.Contains(ExpansionLib.GodsAndKings) || _Expansions.Contains(ExpansionLib.BraveNewWorld);
+        public bool HasGnkOrBnw => _Expansions.Contains(Data.Expansions.GodsAndKings) || _Expansions.Contains(Data.Expansions.BraveNewWorld);
 
         public bool HasDlcCiv
         {
             get
             {
                 return _Expansions.Any(e =>
-                    e == ExpansionLib.Babylon ||
-                    e == ExpansionLib.Denmark ||
-                    e == ExpansionLib.Korea ||
-                    e == ExpansionLib.Polynesia ||
-                    e == ExpansionLib.SpainAndInca);
+                    e == Data.Expansions.Babylon ||
+                    e == Data.Expansions.Denmark ||
+                    e == Data.Expansions.Korea ||
+                    e == Data.Expansions.Polynesia ||
+                    e == Data.Expansions.SpainAndInca);
             }
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MRobot.Civilization.Base
 {
-    static class MapPropertyLib
+    static class MapProperties
     {
         // Here we can put map properties that are common to both
         // Civ5 and BeyondEarth.

@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MRobot.Civilization.Base;
 
-namespace MRobot.Civilization.Civ5
+namespace MRobot.Civilization.Civ5.Data
 {
-
-    public sealed partial class DefaultCivilizations
+    public static class Civilizations
     {
         private static IDictionary<string, Func<ICivilization>> _CivsByName;
         public static ICivilization FindBySaveName(SaveString name)
         {
             if (_CivsByName == null)
-                _CivsByName = Utils.GetStaticGettersOfType<string, ICivilization>(typeof(Civilization), civ => civ.SaveName);
+                _CivsByName = Utils.GetStaticGettersOfType<string, ICivilization>(typeof(Base.Civilization), civ => civ.SaveName);
 
             if (_CivsByName.ContainsKey(name))
                 return _CivsByName[name]();
@@ -34,7 +32,7 @@ namespace MRobot.Civilization.Civ5
         private static void VerifyCivsByIdDict()
         {
             if (_CivsById == null)
-                _CivsById = Utils.GetStaticGettersOfType<int, ICivilization>(typeof(Civilization), civ => civ.Id);
+                _CivsById = Utils.GetStaticGettersOfType<int, ICivilization>(typeof(Base.Civilization), civ => civ.Id);
         }
 
         public static IEnumerable<ICivilization> GetAll()
@@ -47,12 +45,12 @@ namespace MRobot.Civilization.Civ5
         {
             get
             {
-                return new Civilization
+                return new Base.Civilization
                 (
                     id: 1,
                     name: "America",
-                    color: DefaultPlayerColors.America,
-                    leader: DefaultLeaders.Washington
+                    color: PlayerColors.America,
+                    leader: Leaders.Washington
                 );
             }
         }
@@ -60,12 +58,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 2,
                     name: "Arabia",
-                    color: DefaultPlayerColors.Arabia,
-                    leader: DefaultLeaders.HarunAlRashid
+                    color: PlayerColors.Arabia,
+                    leader: Leaders.HarunAlRashid
                 );
 			}
 		}
@@ -73,13 +71,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 3,
                     name: "Assyria",
-                    color: DefaultPlayerColors.Assyria, 
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.Ashurbanipal
+                    color: PlayerColors.Assyria, 
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.Ashurbanipal
                 );
 			}
 		}
@@ -87,13 +85,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 4,
                     name: "Austria",
-                    color: DefaultPlayerColors.Austria, 
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.MariaTheresa
+                    color: PlayerColors.Austria, 
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.MariaTheresa
                 );
 			}
 		}
@@ -101,12 +99,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 5,
                     name: "Aztec",
-                    color: DefaultPlayerColors.Aztecs,
-                    leader: DefaultLeaders.Montezuma
+                    color: PlayerColors.Aztecs,
+                    leader: Leaders.Montezuma
                 );
 			}
 		}
@@ -114,13 +112,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 6,
                     name: "Babylon",
-                    color: DefaultPlayerColors.Babylon, 
-                    requirement: Expansion.Babylon,
-                    leader: DefaultLeaders.NebuchadnezzarII
+                    color: PlayerColors.Babylon, 
+                    requirement: Expansions.Babylon,
+                    leader: Leaders.NebuchadnezzarII
                 );
 			}
 		}
@@ -128,13 +126,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 7,
                     name: "Brazil",
-                    color: DefaultPlayerColors.Brazil, 
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.PedroII
+                    color: PlayerColors.Brazil, 
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.PedroII
                 );
 			}
 		}
@@ -142,13 +140,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 8,
                     name: "Byzantium",
-                    color: DefaultPlayerColors.Byzantium, 
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.Theodora
+                    color: PlayerColors.Byzantium, 
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.Theodora
                 );
 			}
 		}
@@ -156,13 +154,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 9,
                     name: "Carthage",
-                    color: DefaultPlayerColors.Carthage, 
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.Dido
+                    color: PlayerColors.Carthage, 
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.Dido
                 );
 			}
 		}
@@ -170,13 +168,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 10,
                     name: "Celts",
-                    color: DefaultPlayerColors.Celts, 
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.Boudicca
+                    color: PlayerColors.Celts, 
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.Boudicca
                 );
 			}
 		}
@@ -184,12 +182,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 11,
                     name: "China",
-                    color: DefaultPlayerColors.China,
-                    leader: DefaultLeaders.WuZetian
+                    color: PlayerColors.China,
+                    leader: Leaders.WuZetian
                 );
 			}
 		}
@@ -197,13 +195,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 12,
                     name: "Denmark",
-                    color: DefaultPlayerColors.Denmark, 
-                    requirement: Expansion.Denmark,
-                    leader: DefaultLeaders.HaraldBluetooth
+                    color: PlayerColors.Denmark, 
+                    requirement: Expansions.Denmark,
+                    leader: Leaders.HaraldBluetooth
                 );
 			}
 		}
@@ -211,12 +209,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 13,
                     name: "Egypt",
-                    color: DefaultPlayerColors.Egypt,
-                    leader: DefaultLeaders.Ramesses
+                    color: PlayerColors.Egypt,
+                    leader: Leaders.Ramesses
                 );
 			}
 		}
@@ -224,12 +222,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 14,
                     name: "England",
-                    color: DefaultPlayerColors.England,
-                    leader: DefaultLeaders.Elizabeth
+                    color: PlayerColors.England,
+                    leader: Leaders.Elizabeth
                 );
 			}
 		}
@@ -237,13 +235,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 15,
                     name: "Ethiopia",
-                    color: DefaultPlayerColors.Ethiopia,
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.HaileSelassie
+                    color: PlayerColors.Ethiopia,
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.HaileSelassie
                 );
 			}
 		}
@@ -251,12 +249,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 16,
                     name: "France",
-                    color: DefaultPlayerColors.France,
-                    leader: DefaultLeaders.Napoleon
+                    color: PlayerColors.France,
+                    leader: Leaders.Napoleon
                 );
 			}
 		}
@@ -264,12 +262,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 17,
                     name: "Germany",
-                    color: DefaultPlayerColors.Germany,
-                    leader: DefaultLeaders.Bismarck
+                    color: PlayerColors.Germany,
+                    leader: Leaders.Bismarck
                 );
 			}
 		}
@@ -277,12 +275,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 18,
                     name: "Greece",
-                    color: DefaultPlayerColors.Greece,
-                    leader: DefaultLeaders.Alexander
+                    color: PlayerColors.Greece,
+                    leader: Leaders.Alexander
                 );
 			}
 		}
@@ -290,13 +288,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 19,
                     name: "Huns",
-                    color: DefaultPlayerColors.Huns,
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.Atilla
+                    color: PlayerColors.Huns,
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.Atilla
                 );
 			}
 		}
@@ -304,13 +302,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 20,
                     name: "Inca",
-                    color: DefaultPlayerColors.Inca,
-                    requirement: Expansion.SpainAndInca,
-                    leader: DefaultLeaders.Pachacuti
+                    color: PlayerColors.Inca,
+                    requirement: Expansions.SpainAndInca,
+                    leader: Leaders.Pachacuti
                 );
 			}
 		}
@@ -318,12 +316,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 21,
                     name: "India",
-                    color: DefaultPlayerColors.India,
-                    leader: DefaultLeaders.Gandhi
+                    color: PlayerColors.India,
+                    leader: Leaders.Gandhi
                 );
 			}
 		}
@@ -331,13 +329,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 22,
                     name: "Indonesia",
-                    color: DefaultPlayerColors.Indonesia,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.GajahMada
+                    color: PlayerColors.Indonesia,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.GajahMada
                 );
 			}
 		}
@@ -345,12 +343,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 23,
                     name: "Iroquois",
-                    color: DefaultPlayerColors.Iroquois,
-                    leader: DefaultLeaders.Hiawatha
+                    color: PlayerColors.Iroquois,
+                    leader: Leaders.Hiawatha
                 );
 			}
 		}
@@ -358,12 +356,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 24,
                     name: "Japan",
-                    color: DefaultPlayerColors.Japan,
-                    leader: DefaultLeaders.OdaNobunaga
+                    color: PlayerColors.Japan,
+                    leader: Leaders.OdaNobunaga
                 );
 			}
 		}
@@ -371,13 +369,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 25,
                     name: "Korea",
-                    color: DefaultPlayerColors.Korea,
-                    requirement: Expansion.Korea,
-                    leader: DefaultLeaders.Sejong
+                    color: PlayerColors.Korea,
+                    requirement: Expansions.Korea,
+                    leader: Leaders.Sejong
                 );
 			}
 		}
@@ -385,13 +383,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 26,
                     name: "Maya",
-                    color: DefaultPlayerColors.Maya,
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.Pacal
+                    color: PlayerColors.Maya,
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.Pacal
                 );
 			}
 		}
@@ -399,13 +397,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 27,
                     name: "Mongolia",
-                    color: DefaultPlayerColors.Mongolia,
-                    requirement: Expansion.Mongolia,
-                    leader: DefaultLeaders.GenghisKhan
+                    color: PlayerColors.Mongolia,
+                    requirement: Expansions.Mongolia,
+                    leader: Leaders.GenghisKhan
                 );
 			}
 		}
@@ -413,13 +411,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 28,
                     name: "Morocco",
-                    color: DefaultPlayerColors.Morocco,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.AhmadAlMansur
+                    color: PlayerColors.Morocco,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.AhmadAlMansur
                 );
 			}
 		}
@@ -427,13 +425,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 29,
                     name: "Netherlands",
-                    color: DefaultPlayerColors.Netherlands,
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.William
+                    color: PlayerColors.Netherlands,
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.William
                 );
 			}
 		}
@@ -441,12 +439,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 30,
                     name: "Ottoman",
-                    color: DefaultPlayerColors.Ottomans,
-                    leader: DefaultLeaders.Suleiman
+                    color: PlayerColors.Ottomans,
+                    leader: Leaders.Suleiman
                 );
 			}
 		}
@@ -454,12 +452,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 31,
                     name: "Persia",
-                    color: DefaultPlayerColors.Persia,
-                    leader: DefaultLeaders.Darius
+                    color: PlayerColors.Persia,
+                    leader: Leaders.Darius
                 );
 			}
 		}
@@ -467,13 +465,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 32,
                     name: "Poland",
-                    color: DefaultPlayerColors.Poland,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.Casimir
+                    color: PlayerColors.Poland,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.Casimir
                 );
 			}
 		}
@@ -481,13 +479,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 33,
                     name: "Polynesia",
-                    color: DefaultPlayerColors.Polynesia,
-                    requirement: Expansion.Polynesia,
-                    leader: DefaultLeaders.Kamehameha
+                    color: PlayerColors.Polynesia,
+                    requirement: Expansions.Polynesia,
+                    leader: Leaders.Kamehameha
                 );
 			}
 		}
@@ -495,13 +493,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 34,
                     name: "Portugal",
-                    color: DefaultPlayerColors.Portugal,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.Maria
+                    color: PlayerColors.Portugal,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.Maria
                 );
 			}
 		}
@@ -509,12 +507,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 35,
                     name: "Rome",
-                    color: DefaultPlayerColors.Rome,
-                    leader: DefaultLeaders.AugustusCaesar
+                    color: PlayerColors.Rome,
+                    leader: Leaders.AugustusCaesar
                 );
 			}
 		}
@@ -522,12 +520,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 36,
                     name: "Russia",
-                    color: DefaultPlayerColors.Russia,
-                    leader: DefaultLeaders.Catherine
+                    color: PlayerColors.Russia,
+                    leader: Leaders.Catherine
                 );
 			}
 		}
@@ -535,13 +533,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 37,
                     name: "Shoshone",
-                    color: DefaultPlayerColors.Shoshone,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.Pocatello
+                    color: PlayerColors.Shoshone,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.Pocatello
                 );
 			}
 		}
@@ -549,12 +547,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 38,
                     name: "Siam",
-                    color: DefaultPlayerColors.Siam,
-                    leader: DefaultLeaders.Ramkhamhaeng
+                    color: PlayerColors.Siam,
+                    leader: Leaders.Ramkhamhaeng
                 );
 			}
 		}
@@ -562,12 +560,12 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 39,
                     name: "Songhai",
-                    color: DefaultPlayerColors.Songhai,
-                    leader: DefaultLeaders.Askia
+                    color: PlayerColors.Songhai,
+                    leader: Leaders.Askia
                 );
 			}
 		}
@@ -575,13 +573,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 40,
                     name: "Spain",
-                    color: DefaultPlayerColors.Spain,
-                    requirement: Expansion.SpainAndInca,
-                    leader: DefaultLeaders.Isabella
+                    color: PlayerColors.Spain,
+                    requirement: Expansions.SpainAndInca,
+                    leader: Leaders.Isabella
                 );
 			}
 		}
@@ -589,13 +587,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 41,
                     name: "Sweden",
-                    color: DefaultPlayerColors.Sweden,
-                    requirement: Expansion.GodsAndKings,
-                    leader: DefaultLeaders.GustavusAdolphus
+                    color: PlayerColors.Sweden,
+                    requirement: Expansions.GodsAndKings,
+                    leader: Leaders.GustavusAdolphus
                 );
 			}
 		}
@@ -603,13 +601,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 42,
                     name: "Venice",
-                    color: DefaultPlayerColors.Venice,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.EnricoDandolo
+                    color: PlayerColors.Venice,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.EnricoDandolo
                 );
 			}
 		}
@@ -617,13 +615,13 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-				return new Civilization
+				return new Base.Civilization
                 (
                     id: 43,
                     name: "Zulu",
-                    color: DefaultPlayerColors.Zulus,
-                    requirement: Expansion.BraveNewWorld,
-                    leader: DefaultLeaders.Shaka
+                    color: PlayerColors.Zulus,
+                    requirement: Expansions.BraveNewWorld,
+                    leader: Leaders.Shaka
                 );
 			}
 		}
@@ -631,11 +629,11 @@ namespace MRobot.Civilization.Civ5
 		{
 			get
 			{
-                return new Civilization
+                return new Base.Civilization
                 (
                     id: 0,
-                    name: String.Empty,
-                    leader: DefaultLeaders.Barbarian
+                    name: string.Empty,
+                    leader: Leaders.Barbarian
                 );
 			}
 		}

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using MRobot.Civilization.Base;
 
-namespace MRobot.Civilization.Civ5
+namespace MRobot.Civilization.Civ5.Data
 {
-    public static class ExpansionLib
+    public static class Expansions
     {
         private static IList<Expansion> _all;
         public static IList<Expansion> All
@@ -12,7 +12,7 @@ namespace MRobot.Civilization.Civ5
             get
             {
                 if (_all == null)
-                    _all = Utils.GetStaticFieldsOfType<Expansion>(typeof(ExpansionLib));
+                    _all = Utils.GetStaticFieldsOfType<Expansion>(typeof(Expansions));
                 return _all;
             }
         }
@@ -144,7 +144,7 @@ namespace MRobot.Civilization.Civ5
             id: 1,
             name: "Mongolia",
             saveName: "Mongolia",
-            steamId: String.Empty,
+            steamId: string.Empty,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0xE3, 0x1E, 0x3C, 0x29, 0x76, 0x11, 0xF6, 0x44, 0xAC, 0x1F, 0x59, 0x66, 0x38, 0x26, 0xDE, 0x74 }
         );

@@ -12,7 +12,7 @@ namespace MRobot.Civilization.Civ5
             : base(name, mapSize, mapProperties, saveName, requirement, sizedMaps)
         {
             if (mapSize == null)
-                mapSize = MapPropertyLib.MapSizeProp;
+                mapSize = Data.MapProperties.MapSizeProp;
 
             NumberOfCityStates = new SaveNumber(12, 0, MaxCityStates);
             AdjustMapPathBySize(mapSize.Value);
