@@ -48,6 +48,7 @@
     <Compile Include="BaseSaveItem.cs" />
     <Compile Include="Base\Civilization.cs" />
     <Compile Include="Base\MapSize.cs" />
+    <Compile Include="Base\PlayerDifficulty.cs" />
     <Compile Include="Civ5\Data\Civilizations.cs" />
     <Compile Include="Base\CivilizationMinor.cs" />
     <Compile Include="Base\ICivilization.cs" />
@@ -106,8 +107,8 @@
     <Compile Include="SaveNumber.cs" />
     <Compile Include="SaveString.cs" />
     <Compile Include="Base\GameConfig.cs" />
-    <Compile Include="Civ5\Save\Load.cs" />
-    <Compile Include="Civ5\Save\Save.cs" />
+    <Compile Include="Civ5\Save\GameLoader.cs" />
+    <Compile Include="Civ5\Save\GameSaver.cs" />
     <Compile Include="Civ5\GameSave.cs" />
     <Compile Include="SaveHelpers.cs" />
     <Compile Include="SaveReader.cs" />

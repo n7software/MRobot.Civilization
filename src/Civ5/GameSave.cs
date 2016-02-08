@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using MRobot.Civilization.Civ5.Data;
+using MRobot.Civilization.Civ5.Save;
 
-namespace MRobot.Civilization.Civ5.Save
+namespace MRobot.Civilization.Civ5
 {
-    public partial class GameSave : Save.GameConfig
+    public class GameSave : GameConfig
     {
         private GameSave()
             : base()
@@ -11,24 +13,13 @@ namespace MRobot.Civilization.Civ5.Save
             HeaderCurrentEra = GameEraProps.Vanilla;
         }
 
-        private long RawGameDataIndex;
+        private int _rawGameDataIndex;
 
-        private byte[] _OriginalBytes;
+        private byte[] _originalBytes;
 
-        public byte[] OriginalBytes
-        { 
-            get { return (byte[])_OriginalBytes.Clone(); }
-        }
+        public byte[] OriginalBytes => _originalBytes.ToArray();
 
-        private byte[] RawGameData
-        {
-            get
-            {
-                byte[] buffer = new byte[_OriginalBytes.Length - RawGameDataIndex];
-                Array.Copy(_OriginalBytes, RawGameDataIndex, buffer, 0, buffer.Length);
-                return buffer;
-            }
-        }
+        private byte[] RawGameData => _originalBytes.Skip(_rawGameDataIndex).ToArray();
 
         public IGameProperty<GameEra> HeaderCurrentEra { get; private set; }
 
@@ -50,24 +41,24 @@ namespace MRobot.Civilization.Civ5.Save
             base.SetPropertiesForVanilla();
         }
 
-        protected override void WriteCurrentTurnNumber(SaveWriter output)
+        internal override int GetCurrentTurnNumber()
         {
-            output.Write(TurnNumber);
+            return TurnNumber;
         }
 
-        protected override void WriteCurrentEra(SaveWriter output)
+        internal override byte[] GetCurrentEra()
         {
-            output.Write(SaveHelpers.ConvertOptionEnumToSaveStr(HeaderCurrentEra.Value).Bytes);
+            return GameSaver.ConvertOptionEnumToSaveStr(HeaderCurrentEra.Value).Bytes;
         }
 
-        protected override void WritePlayerColor(SaveWriter output)
+        internal override byte[] GetPlayerColor()
         {
-            output.Write(Players[0].Civilization.Color.SaveName.Bytes);
+            return Players[0].Civilization.Color.SaveName.Bytes;
         }
 
         static readonly SaveString CityStateCivName = new SaveString("CIVILIZATION", "MINOR");
 
-        protected override void WriteCityStates(SaveWriter output)
+        internal override void WriteCityStates(SaveWriter output)
         {
             for (int i = SaveHelpers.MaxPlayers; i < Players.Length - 1; i++)
             {
@@ -77,7 +68,7 @@ namespace MRobot.Civilization.Civ5.Save
             }
         }
 
-        protected override void WriteMinorCivs(SaveWriter output)
+        internal override void WriteMinorCivs(SaveWriter output)
         {
             for (int i = SaveHelpers.MaxPlayers; i < Players.Length - 1; i++)
             {
@@ -87,7 +78,7 @@ namespace MRobot.Civilization.Civ5.Save
             }
         }
 
-        protected override void WriteLeaders(SaveWriter output)
+        internal override void WriteLeaders(SaveWriter output)
         {
             for (int i = 0; i < Players.Length; i++)
             {
@@ -97,12 +88,12 @@ namespace MRobot.Civilization.Civ5.Save
             }
         }
 
-        protected override void WriteCurrentPlayerIndex(SaveWriter output)
+        internal override int GetCurrentPlayerIndex()
         {
-            output.Write(CurrentPlayerIndex);
+            return CurrentPlayerIndex;
         }
 
-        protected override void WritePlayerColors(SaveWriter output)
+        internal override void WritePlayerColors(SaveWriter output)
         {
             for(int i = 0; i < Players.Length; i++)
             {
@@ -112,9 +103,9 @@ namespace MRobot.Civilization.Civ5.Save
             }
         }
 
-        protected override void WriteRawGameData(SaveWriter output)
+        internal override byte[] GetRawGameData()
         {
-            output.Write(RawGameData);
+            return RawGameData;
         }
         #endregion
     }

@@ -16,5 +16,10 @@ namespace MRobot.Civilization.Base
             Name = name;
             Players = players;
         }
+
+        public SaveString GetSaveString()
+        {
+            return new SaveString("WORLDSIZE", Name);
+        }
     }
 }

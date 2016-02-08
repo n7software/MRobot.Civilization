@@ -35,13 +35,7 @@ namespace MRobot.Civilization.Civ5.Data
             }
         }
 
-        public static IGameProperty<GameEra> Expansions
-        {
-            get
-            {
-                return new GameProperty<GameEra>("Starting Era", GameEra.Ancient, ExpansionsDict);
-            }
-        }
+        public static IGameProperty<GameEra> Expansions => new GameProperty<GameEra>("Starting Era", GameEra.Ancient, ExpansionsDict);
 
         private static IDictionary<GameEra, string> ExpansionsDict
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MRobot.Civilization.Base;
 using MRobot.Civilization.Civ5.Data;
+using MRobot.Civilization.Civ5.Save;
 
 namespace MRobot.Civilization.Civ5
 {
@@ -32,9 +33,7 @@ namespace MRobot.Civilization.Civ5
             StartingEra = GameEraProps.Vanilla;
 
             DominationVictory = true;
-
-            //EnableMaxTurns = false;
-            //MaxTurns = new SaveNumber(100, 1, 999);
+            
             EnableTurnTimer = false;
             TurnTimer = new SaveNumber(0, 0, 999);
 
@@ -78,6 +77,7 @@ namespace MRobot.Civilization.Civ5
         public Map Map { get; set; }
 
         public Player[] Players { get; protected set; }
+
         public ICivilization HeaderCiv { get; protected set; }
 
         public int PlayerCount => Players.Take(63).Count(p => p.Type == PlayerType.Human || p.Type == PlayerType.AI);
@@ -120,7 +120,7 @@ namespace MRobot.Civilization.Civ5
             if (expansion != Data.Expansions.CivilizationVComplete && expansion != Data.Expansions.Upgrade1 && expansion != Data.Expansions.Mongolia)
             {
                 _Expansions.Remove(expansion);
-                if (!this.HasGnkOrBnw)
+                if (!HasGnkOrBnw)
                 {
                     SetPropertiesForVanilla();
                 }
@@ -135,7 +135,11 @@ namespace MRobot.Civilization.Civ5
             StartingEra = GameEraProps.Vanilla;
         }
 
-        public bool HasGnkOrBnw => _Expansions.Contains(Data.Expansions.GodsAndKings) || _Expansions.Contains(Data.Expansions.BraveNewWorld);
+        public bool HasGnkOrBnw => _Expansions.Any(e => e == Data.Expansions.GodsAndKings || e == Data.Expansions.BraveNewWorld);
+
+        public bool HasGnk => _Expansions.Contains(Data.Expansions.GodsAndKings);
+
+        public bool HasBnw => _Expansions.Contains(Data.Expansions.BraveNewWorld);
 
         public bool HasDlcCiv
         {
@@ -149,9 +153,18 @@ namespace MRobot.Civilization.Civ5
                     e == Data.Expansions.SpainAndInca);
             }
         }
+        
+        public PlayerDifficulty HeaderDifficulty { get; protected set; }
 
+        protected override string CurrentVersion()
+        {
+            return "1.0.3.144 (395131)";
+        }
 
-        public PlayerDifficulty? HeaderDifficulty { get; protected set; }
+        protected override string CurrentBuild()
+        {
+            return "395131";
+        }
 
         #region Basic Options
         public IGameProperty<GameEra> HeaderStartingEra { get; private set; }
@@ -163,9 +176,6 @@ namespace MRobot.Civilization.Civ5
         #endregion
 
         #region Advanced Game Options
-        //Doesn't work, even in officially created game config files
-        //public bool EnableMaxTurns { get { return false; } }
-        //public SaveNumber MaxTurns { get; private set; }
 
         public bool EnableTurnTimer { get; set; }
         public SaveNumber TurnTimer { get; protected set; }
@@ -209,14 +219,51 @@ namespace MRobot.Civilization.Civ5
         internal bool GameStarted { get; set; }
         #endregion
 
-        protected override string CurrentVersion()
+        #region Overridable Methods
+        internal virtual int GetCurrentTurnNumber()
         {
-            return "1.0.3.144 (395131)";
+            return 0x00;
         }
 
-        protected override string CurrentBuild()
+        internal virtual byte[] GetCurrentEra()
         {
-            return "395131";
+            return GameSaver.ConvertOptionEnumToSaveStr(HeaderStartingEra.Value).Bytes;
         }
+
+        internal virtual byte[] GetPlayerColor()
+        {
+            return new byte[] { 0x00 };
+        }
+
+        internal virtual void WriteLeaders(SaveWriter output)
+        {
+            output.WriteEmptyBlocks(SaveHelpers.StandardSectionBlockCount);
+        }
+
+        internal virtual void WriteMinorCivs(SaveWriter output)
+        {
+            output.WriteEmptyBlocks(SaveHelpers.CityStateBlocks);
+        }
+
+        internal virtual int GetCurrentPlayerIndex()
+        {
+            return 0x00;
+        }
+
+        internal virtual void WriteCityStates(SaveWriter output)
+        {
+            output.WriteEmptyBlocks(SaveHelpers.CityStateBlocks);
+        }
+
+        internal virtual void WritePlayerColors(SaveWriter output)
+        {
+            output.WriteEmptyBlocks(SaveHelpers.StandardSectionBlockCount);
+        }
+
+        internal virtual byte[] GetRawGameData()
+        {
+            return new byte[0];
+        }
+        #endregion
     }
 }

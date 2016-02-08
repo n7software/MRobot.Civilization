@@ -103,20 +103,6 @@ namespace MRobot.Civilization
                 this.Write(Save.Players[i].Password.Bytes);
         }
 
-        public void WritePlayerDifficultiesSection(bool bnw)
-        {
-            this.Write(SaveHelpers.SectionDelimiter);
-            for (int i = 0; i < Save.Players.Length - 1; i++)
-            {
-                var difficulty = Save.Players[i].Difficulty;
-                if (!bnw && difficulty == PlayerDifficulty.AI)
-                    difficulty = PlayerDifficulty.Chieftain;
-                this.Write((int)difficulty);
-            }
-            //Player 64 (barbarians) is a special case
-            this.Write((int)PlayerDifficulty.Chieftain);
-        }
-
         public void WriteTextKey(string prefix, string value, bool worldSize = false)
         {
             SaveString noPrefix = value;

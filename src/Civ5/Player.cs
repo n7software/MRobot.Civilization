@@ -32,5 +32,30 @@ namespace MRobot.Civilization.Civ5
         {
             get { return new Player { Type = PlayerType.Unknown, Civilization = Civilizations.Unknown }; }
         }
+
+        protected override void OnPlayerTypeChanged()
+        {
+            switch (Type)
+            {
+                case PlayerType.Human:
+                    Difficulty = new GameProperty<int>(
+                        DifficultyPropertyName,
+                        PlayerDifficulties.Prince,
+                        PlayerDifficulties.DifficultyNames);
+                    break;  
+
+                case PlayerType.AI:
+                    Difficulty = new GameProperty<int>(
+                        DifficultyPropertyName,
+                        PlayerDifficulties.AI);
+                    break;
+
+                default:
+                    Difficulty = new GameProperty<int>(
+                        DifficultyPropertyName,
+                        PlayerDifficulties.Chieftain);
+                    break;
+            }
+        }
     }
 }

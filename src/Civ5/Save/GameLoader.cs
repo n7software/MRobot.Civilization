@@ -381,10 +381,10 @@ namespace MRobot.Civilization.Civ5.Save
                 if (expectedLength < 0)
                     expectedLength = (int)save.Length;
 
-                gameSave.RawGameDataIndex = reader.Position;
+                gameSave._rawGameDataIndex = reader.Position;
                 reader.ReadBytes((int)(expectedLength - save.Position));
 
-                gameSave._OriginalBytes = reader.AllBytesRead;
+                gameSave._originalBytes = reader.AllBytesRead;
                 #endregion
             }
             return gameSave;
