@@ -9,16 +9,10 @@
         }
         public PlayerColor Color { get; set; }
 
-        public int Id
-        {
-            get { return -1; }
-        }
+        public int Id => -1;
 
         public Leader Leader { get; set; }
 
-        public Expansion Requirement
-        {
-            get { return null; }
-        }
+        public Expansion Requirement => null;
     }
 }

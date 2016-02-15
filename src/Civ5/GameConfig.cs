@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using MRobot.Civilization.Base;
@@ -76,64 +77,23 @@ namespace MRobot.Civilization.Civ5
 
         public Map Map { get; set; }
 
-        public Player[] Players { get; protected set; }
+        public Player[] Players { get; }
 
         public ICivilization HeaderCiv { get; protected set; }
 
-        public int PlayerCount => Players.Take(63).Count(p => p.Type == PlayerType.Human || p.Type == PlayerType.AI);
+        public int PlayerCount => Players.TakeWhile(p => p.Type == PlayerType.Human || p.Type == PlayerType.AI).Count();
 
         public bool CulturalVictory { get; set; }
         public bool DiplomaticVictory { get; set; }
         public bool TimeVictory { get; set; }
         public bool ScienceVictory { get; set; }
 
+        public IGameProperty<GamePace> GamePace { get; }  = CreateGamePaceProperty(Data.GamePace.Quick);
+
         /// <summary>
         /// Note that all games have the Upgrade 1 expansion
         /// </summary>
         public IEnumerable<Expansion> Expansions => _Expansions.ToArray();
-
-        /// <summary>
-        /// Note that adding all expansions to a map will automatically add the Civilization V Compete expansion
-        /// </summary>
-        public void AddExpansion(Expansion expansion)
-        {
-            if (expansion != Data.Expansions.CivilizationVComplete)
-            {
-                _Expansions.Add(expansion);
-                if (expansion == Data.Expansions.GodsAndKings || expansion == Data.Expansions.BraveNewWorld)
-                {
-                    SetPropertiesForExpansions();
-                }
-                if (_Expansions.IsSupersetOf(Data.Expansions.All))
-                    _Expansions.Add(Data.Expansions.CivilizationVComplete);
-            }
-        }
-
-        protected virtual void SetPropertiesForExpansions()
-        {
-            HeaderStartingEra = GameEraProps.Expansions;
-            StartingEra = GameEraProps.Expansions;
-        }
-
-        public void RemoveExpansion(Expansion expansion)
-        {
-            if (expansion != Data.Expansions.CivilizationVComplete && expansion != Data.Expansions.Upgrade1 && expansion != Data.Expansions.Mongolia)
-            {
-                _Expansions.Remove(expansion);
-                if (!HasGnkOrBnw)
-                {
-                    SetPropertiesForVanilla();
-                }
-                if (!_Expansions.IsSupersetOf(Data.Expansions.All))
-                    _Expansions.Remove(Data.Expansions.CivilizationVComplete);
-            }
-        }
-
-        protected virtual void SetPropertiesForVanilla()
-        {
-            HeaderStartingEra = GameEraProps.Vanilla;
-            StartingEra = GameEraProps.Vanilla;
-        }
 
         public bool HasGnkOrBnw => _Expansions.Any(e => e == Data.Expansions.GodsAndKings || e == Data.Expansions.BraveNewWorld);
 
@@ -164,6 +124,64 @@ namespace MRobot.Civilization.Civ5
         protected override string CurrentBuild()
         {
             return "395131";
+        }
+
+        /// <summary>
+        /// Note that adding all expansions to a map will automatically add the Civilization V Compete expansion
+        /// </summary>
+        public void AddExpansion(Expansion expansion)
+        {
+            if (expansion != Data.Expansions.CivilizationVComplete)
+            {
+                _Expansions.Add(expansion);
+                if (expansion == Data.Expansions.GodsAndKings || expansion == Data.Expansions.BraveNewWorld)
+                {
+                    SetPropertiesForExpansions();
+                }
+                if (_Expansions.IsSupersetOf(Data.Expansions.All))
+                    _Expansions.Add(Data.Expansions.CivilizationVComplete);
+            }
+        }
+
+        public void RemoveExpansion(Expansion expansion)
+        {
+            if (expansion != Data.Expansions.CivilizationVComplete && expansion != Data.Expansions.Upgrade1 && expansion != Data.Expansions.Mongolia)
+            {
+                _Expansions.Remove(expansion);
+                if (!HasGnkOrBnw)
+                {
+                    SetPropertiesForVanilla();
+                }
+                if (!_Expansions.IsSupersetOf(Data.Expansions.All))
+                    _Expansions.Remove(Data.Expansions.CivilizationVComplete);
+            }
+        }
+
+        public void Save(Stream outputStream)
+        {
+            new GameSaver(this).Save(outputStream);
+        }
+
+        public byte[] ToBytes()
+        {
+            return new GameSaver(this).ToBytes();
+        }
+
+        protected virtual void SetPropertiesForVanilla()
+        {
+            HeaderStartingEra = GameEraProps.Vanilla;
+            StartingEra = GameEraProps.Vanilla;
+        }
+
+        protected virtual void SetPropertiesForExpansions()
+        {
+            HeaderStartingEra = GameEraProps.Expansions;
+            StartingEra = GameEraProps.Expansions;
+        }
+
+        private static IGameProperty<GamePace> CreateGamePaceProperty(GamePace defaultPace)
+        {
+            return new GameProperty<GamePace>("Game Pace", defaultPace, GamePaceDict.GamePaceAsDict);
         }
 
         #region Basic Options

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using MRobot.Civilization.Civ5.Data;
 using MRobot.Civilization.Civ5.Save;
@@ -7,15 +8,23 @@ namespace MRobot.Civilization.Civ5
 {
     public class GameSave : GameConfig
     {
-        private GameSave()
+        private int _rawGameDataIndex;
+
+        private byte[] _originalBytes;
+
+        internal GameSave()
             : base()
         {
             HeaderCurrentEra = GameEraProps.Vanilla;
         }
 
-        private int _rawGameDataIndex;
-
-        private byte[] _originalBytes;
+        public static GameSave FromBytes(byte[] saveData)
+        {
+            using (var stream = new MemoryStream(saveData))
+            {
+                return GameSave.Load(stream);
+            }
+        }
 
         public byte[] OriginalBytes => _originalBytes.ToArray();
 

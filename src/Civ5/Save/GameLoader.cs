@@ -5,28 +5,20 @@ using MRobot.Civilization.Base;
 
 namespace MRobot.Civilization.Civ5.Save
 {
-    public partial class GameSave : GameConfig
+    public class GameLoader
     {
-        public static GameSave FromBytes(byte[] saveData)
-        {
-            using (var stream = new MemoryStream(saveData))
-            {
-                return GameSave.Load(stream);
-            }
-        }
-
-        public static GameSave Load(Stream save, int expectedLength = -1)
+        public GameSave Load(Stream save, int expectedLength = -1)
         {
             var gameSave = new GameSave();
             using (var reader = new SaveReader(save))
             {
-
                 #region Basic Game Information (Header, Expansions, Mods)
 
                 #region Header
-                var fileStart = new String(reader.ReadChars(4));
+                var fileStart = new string(reader.ReadChars(4));
                 if (fileStart != "CIV5")
                     throw new InvalidSaveException("File did not start with CIV5");
+
                 reader.VerifySectionDelimiter(0x08);
                 gameSave.Version = reader.ReadSaveString();
                 gameSave.Build = reader.ReadSaveString();

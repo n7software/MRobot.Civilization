@@ -28,7 +28,6 @@ namespace MRobot.Civilization
 
         public static IDictionary<K, Func<V>> GetStaticGettersOfType<K, V>(Type classToSearch, Func<V, IEnumerable<K>> keysSelector)
         {
-            var staticFields = classToSearch.GetFields();
             var staticProperties = classToSearch.GetProperties(BindingFlags.Static | BindingFlags.Public);
             var propertyInfo =
                 from p in staticProperties
@@ -37,7 +36,7 @@ namespace MRobot.Civilization
             var dict = new Dictionary<K, Func<V>>();
             foreach (var prop in propertyInfo)
             {
-                V val = (V)prop.GetValue(null, null);
+                var val = (V)prop.GetValue(null, null);
                 var keys = keysSelector(val);
                 foreach(var key in keys)
                     dict[key] = () => (V)prop.GetValue(null, null);
@@ -53,16 +52,12 @@ namespace MRobot.Civilization
         public static IList<T> GetStaticFieldsOfType<T>(Type classToSearch)
         {
             var staticFields = classToSearch.GetFields();
-            var staticProperties = classToSearch.GetProperties(BindingFlags.Static | BindingFlags.Public);
             var fieldInfo =
                 from f in staticFields
                 where f.FieldType == typeof(T)
                 && f.IsStatic && f.IsPublic
                 select f;
-            IList<T> values = new List<T>();
-            foreach (var field in fieldInfo)
-                values.Add((T)field.GetValue(null));
-            return values;
+            return fieldInfo.Select(field => (T) field.GetValue(null)).ToList();
         }
 
         public static IDictionary<object, string> GetEnumAsDict<T>()
@@ -77,8 +72,10 @@ namespace MRobot.Civilization
                               .ConvertNumericWordsToNumbers());
         }
 
-        private static Regex UpperUpperLowerRegex = new Regex(@"(\P{Ll})(\P{Ll}\p{Ll})");
-        private static Regex LowerUpperRegex = new Regex(@"(\p{Ll})(\P{Ll})");
+
+
+        private static readonly Regex UpperUpperLowerRegex = new Regex(@"(\P{Ll})(\P{Ll}\p{Ll})");
+        private static readonly Regex LowerUpperRegex = new Regex(@"(\p{Ll})(\P{Ll})");
         private const string CamelSplitReplace = "$1 $2";
 
         public static string SplitCamelCase(this string camelCase)
