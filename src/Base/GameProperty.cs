@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRobot.Civilization
+namespace MRobot.Civilization.Base
 {
     //Interface allows Map to return a set of immutable IMapProperties, 
     //since map properties should be changed via the Map object

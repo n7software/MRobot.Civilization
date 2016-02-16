@@ -10,7 +10,7 @@ namespace MRobot.Civilization.Civ5
     public class Player : Base.Player
     {
         public Player()
-            : base(PlayerDifficulties.DifficultyNames, PlayerDifficulties.DefaultDifficulty)
+            : base(PlayerDifficulties.All, PlayerDifficulties.DefaultDifficulty)
         { }
 
         public static Player AiPlayer
@@ -35,27 +35,27 @@ namespace MRobot.Civilization.Civ5
 
         protected override void OnPlayerTypeChanged()
         {
+            PlayerDifficulty difficulty = null;
+
             switch (Type)
             {
                 case PlayerType.Human:
-                    Difficulty = new GameProperty<int>(
-                        DifficultyPropertyName,
-                        PlayerDifficulties.Prince,
-                        PlayerDifficulties.DifficultyNames);
+                    difficulty = PlayerDifficulties.Prince;
                     break;  
 
                 case PlayerType.AI:
-                    Difficulty = new GameProperty<int>(
-                        DifficultyPropertyName,
-                        PlayerDifficulties.AI);
+                    difficulty = PlayerDifficulties.AI;
                     break;
 
                 default:
-                    Difficulty = new GameProperty<int>(
-                        DifficultyPropertyName,
-                        PlayerDifficulties.Chieftain);
+                    difficulty = PlayerDifficulties.Chieftain;
                     break;
             }
+
+            Difficulty = new GameProperty<PlayerDifficulty>(
+                DifficultyPropertyName,
+                difficulty,
+                PlayerDifficulties.AllInNamesDictionary());
         }
     }
 }

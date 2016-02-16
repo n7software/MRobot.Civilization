@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MRobot.Civilization.Base
 {
-    public abstract class Map: IExpandable
+    public class Map: IExpandable
     {
         internal Map(string name, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
         {
@@ -40,9 +40,9 @@ namespace MRobot.Civilization.Base
             get { return new List<IGameProperty>(_MapProperties); }
         }
 
-        protected virtual void SetMapSize(MapSize mapSize)
+        public virtual void SetMapSize(MapSize mapSize)
         {
-            this._Size.Value = mapSize;
+            _Size.Value = mapSize;
             AdjustMapPathBySize(mapSize);
         }
 

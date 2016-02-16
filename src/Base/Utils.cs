@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace MRobot.Civilization
+namespace MRobot.Civilization.Base
 {
     static class Utils
     {
@@ -59,7 +57,7 @@ namespace MRobot.Civilization
                 select f;
             return fieldInfo.Select(field => (T) field.GetValue(null)).ToList();
         }
-
+        
         public static IDictionary<object, string> GetEnumAsDict<T>()
         {
             return typeof(T)
@@ -71,9 +69,7 @@ namespace MRobot.Civilization
                               .SplitCamelCase()
                               .ConvertNumericWordsToNumbers());
         }
-
-
-
+        
         private static readonly Regex UpperUpperLowerRegex = new Regex(@"(\P{Ll})(\P{Ll}\p{Ll})");
         private static readonly Regex LowerUpperRegex = new Regex(@"(\p{Ll})(\P{Ll})");
         private const string CamelSplitReplace = "$1 $2";

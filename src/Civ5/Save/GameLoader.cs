@@ -2,12 +2,13 @@
 using System.IO;
 using System.Linq;
 using MRobot.Civilization.Base;
+using MRobot.Civilization.Civ5.Data;
 
 namespace MRobot.Civilization.Civ5.Save
 {
-    public class GameLoader
+    public static class GameLoader
     {
-        public GameSave Load(Stream save, int expectedLength = -1)
+        public static GameSave Load(Stream save, int expectedLength = -1)
         {
             var gameSave = new GameSave();
             using (var reader = new SaveReader(save))
@@ -35,7 +36,7 @@ namespace MRobot.Civilization.Civ5.Save
                 gameSave.GamePace.Value = reader.ReadPace();
 
                 var worldSize = reader.ReadMapSize();
-                gameSave.Map = reader.ReadMap(worldSize);
+                gameSave.Map = (Map)reader.ReadMap(worldSize, CreateNewMap);
 
                 #endregion
 
@@ -48,7 +49,7 @@ namespace MRobot.Civilization.Civ5.Save
                     reader.ReadInt32();
                     var expansionName = reader.ReadSaveString();
 
-                    var expansion = Expansion.AllWithInternal.SingleOrDefault(e => Enumerable.SequenceEqual(e.SaveId, expansionId) && e.SaveName == expansionName);
+                    var expansion = Expansions.AllWithInternal.SingleOrDefault(e => Enumerable.SequenceEqual(e.SaveId, expansionId) && e.SaveName == expansionName);
                     if (expansion == null)
                     {
                         expansion = new Expansion(expansionName, expansionName, string.Empty, expansionId);
@@ -78,7 +79,7 @@ namespace MRobot.Civilization.Civ5.Save
                 #region Unknown
                 reader.SkipSaveStrings(2);
                 reader.ReadPlayerColor();
-                reader.ReadBytes(HeaderCrazyBytes.Length);
+                reader.ReadBytes(GameConfig.HeaderCrazyBytes.Length);
                 reader.SkipInt32s(4);
                 reader.ReadSaveString();
                 #endregion
@@ -120,7 +121,7 @@ namespace MRobot.Civilization.Civ5.Save
                 #region Difficulties
                 reader.VerifySectionDelimiter();
                 for (int i = 0; i < SaveHelpers.StandardSectionBlockCount; i++)
-                    gameSave.Players[i].Difficulty = (PlayerDifficulty)reader.ReadInt32();
+                    gameSave.Players[i].Difficulty.Value = PlayerDifficulties.FromInt(reader.ReadInt32());
                 #endregion
 
                 #region Civilizations
@@ -221,7 +222,7 @@ namespace MRobot.Civilization.Civ5.Save
                 reader.ReadSaveString();
 
                 reader.SkipInt32s(2);
-                gameSave.Map.NumberOfCityStates.Value = reader.ReadInt32();
+                (gameSave.Map as Civ5.Map).NumberOfCityStates.Value = reader.ReadInt32();
                 #endregion
 
                 #region City-States
@@ -337,7 +338,7 @@ namespace MRobot.Civilization.Civ5.Save
                 if (gameSave.HasGnkOrBnw)
                     reader.ReadInt32();
                 reader.SkipTextKey();
-                var expectedCrazyMapBytes = SaveHelpers.GetExpectedCrazyMapSizeBytes(gameSave);
+                var expectedCrazyMapBytes = GameConfig.GetExpectedCrazyMapSizeBytes(gameSave);
                 reader.ReadBytes(expectedCrazyMapBytes.Length);
                 #endregion
 
@@ -345,13 +346,13 @@ namespace MRobot.Civilization.Civ5.Save
                 #region Game Options
                 int numberOfPrefs = reader.ReadInt32();
                 for (int i = 0; i < numberOfPrefs; i++)
-                    reader.ReadPreference(gameSave);
+                    ReadPreference(gameSave, reader);
                 #endregion
 
                 #region Map Options
                 int numberOfMapProps = reader.ReadInt32();
                 for (int i = 0; i < numberOfMapProps; i++)
-                    reader.ReadMapPreference(gameSave);
+                    ReadMapPreference(gameSave, reader);
                 #endregion
                 #endregion
 
@@ -373,14 +374,129 @@ namespace MRobot.Civilization.Civ5.Save
                 if (expectedLength < 0)
                     expectedLength = (int)save.Length;
 
-                gameSave._rawGameDataIndex = reader.Position;
+                gameSave.RawGameDataIndex = (int)reader.Position;
                 reader.ReadBytes((int)(expectedLength - save.Position));
 
-                gameSave._originalBytes = reader.AllBytesRead;
+                gameSave.OriginalBytes = reader.AllBytesRead;
                 #endregion
             }
             return gameSave;
         }
+        
+        private static void ReadPreference(GameSave gameSave, SaveReader reader)
+        {
+            var prefName = reader.ReadSaveString(1);
+            bool value = reader.ReadIntAsBool();
 
+            switch (prefName.Value)
+            {
+                case "DYNAMIC_TURNS":
+                    gameSave.DynamicTurns = value;
+                    break;
+                case "SIMULTANEOUS_TURNS":
+                    gameSave.SimultaneousTurns = value;
+                    break;
+                case "PITBOSS":
+                    gameSave.Pitboss = value;
+                    break;
+                case "END_TURN_TIMER_ENABLED":
+                    gameSave.EnableTurnTimer = value;
+                    break;
+                case "POLICY_SAVING":
+                    gameSave.AllowPolicySaving = value;
+                    break;
+                case "PROMOTION_SAVING":
+                    gameSave.AllowPromotionSaving = value;
+                    break;
+                case "COMPLETE_KILLS":
+                    gameSave.CompleteKills = value;
+                    break;
+                case "DISABLE_START_BIAS":
+                    gameSave.DisableStartBias = value;
+                    break;
+                case "NEW_RANDOM_SEED":
+                    gameSave.NewRandomSeed = value;
+                    break;
+                case "NO_GOODY_HUTS":
+                    gameSave.NoAncientRuins = value;
+                    break;
+                case "NO_BARBARIANS":
+                    gameSave.NoBarbarians = value;
+                    break;
+                case "NO_CITY_RAZING":
+                    gameSave.NoCityRazing = value;
+                    break;
+                case "NO_ESPIONAGE":
+                    gameSave.NoEspionage = value;
+                    break;
+                case "ONE_CITY_CHALLENGE":
+                    gameSave.OneCityChallenge = value;
+                    break;
+                case "RAGING_BARBARIANS":
+                    gameSave.RagingBarbarians = value;
+                    break;
+                case "RANDOM_PERSONALITIES":
+                    gameSave.RandomPersonalities = value;
+                    break;
+                case "ALWAYS_WAR":
+                    gameSave.AlwaysWar = value;
+                    break;
+                case "ALWAYS_PEACE":
+                    gameSave.AlwaysPeace = value;
+                    break;
+                case "NO_CHANGING_WAR_PEACE":
+                    gameSave.NoChangingWarPeace = value;
+                    break;
+                case "LOCK_MODS":
+                    gameSave.LockMods = value;
+                    break;
+                case "NO_SCIENCE":
+                    gameSave.NoScience = value;
+                    break;
+                case "NO_RELIGION":
+                    gameSave.NoReligion = value;
+                    break;
+                case "NO_POLICIES":
+                    gameSave.NoPolicies = value;
+                    break;
+                case "NO_HAPPINESS":
+                    gameSave.NoHappiness = value;
+                    break;
+                case "NO_LEAGUES":
+                    gameSave.NoLeagues = value;
+                    break;
+                case "NO_CULTURE_OVERVIEW_UI":
+                    gameSave.NoCultureOverviewUI = value;
+                    break;
+                case "QUICK_COMBAT":
+                    gameSave.QuickCombat = value;
+                    break;
+                case "QUICK_MOVEMENT":
+                    gameSave.QuickMovement = value;
+                    break;
+                default:
+                    gameSave.CustomSettings[prefName.Value] = value;
+                    break;
+            }
+        }
+
+        private static void ReadMapPreference(GameSave gameSave, SaveReader reader)
+        {
+            var mapProps = gameSave.Map.MapProperties;
+            int mapPropIndex = int.Parse(reader.ReadSaveString()) - 1;
+            if (mapPropIndex < mapProps.Count)
+            {
+                var mapProp = (GameProperty)mapProps[mapPropIndex];
+                int valIndex = reader.ReadInt32() - 1;
+                var possibleValues = mapProp.PossibleValues.Keys.ToArray();
+                if (valIndex >= 0 && valIndex < possibleValues.Length)
+                    mapProp.Value = possibleValues[valIndex];
+            }
+        }
+
+        private static Base.Map CreateNewMap(string name, GameProperty<MapSize> sizeProperty, SaveString path)
+        {
+            return new Map(name, mapSize: sizeProperty, saveName: path);
+        }
     }
 }

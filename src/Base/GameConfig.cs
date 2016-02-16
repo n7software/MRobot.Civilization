@@ -30,9 +30,13 @@ namespace MRobot.Civilization.Base
         public SaveString Version { get; internal set; }
         public SaveString Build { get; internal set; }
 
-        public int RandomSeed { get; protected set; }
+        public Map Map { get; set; }
+
+        public int RandomSeed { get; set; }
 
         public ISet<Mod> Mods { get; private set; }
+
+        public Player[] Players { get; protected set; }
 
         protected readonly ISet<Expansion> _Expansions;
 

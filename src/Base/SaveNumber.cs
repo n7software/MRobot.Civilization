@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MRobot.Civilization
+namespace MRobot.Civilization.Base
 {
     public class SaveNumber : IEquatable<SaveNumber>
     {
@@ -35,12 +31,12 @@ namespace MRobot.Civilization
 
         private static void ValueTooBigException(int value, int maxValue)
         {
-            throw new InvalidValueException(String.Format("Given value {0} was greater than maximum value of {1}", value, maxValue));
+            throw new InvalidValueException(string.Format("Given value {0} was greater than maximum value of {1}", value, maxValue));
         }
 
         private static void ValueTooSmallException(int value, int minValue)
         {
-            throw new InvalidValueException(String.Format("Given value {0} was lesser than minimum value of {1}", value, minValue));
+            throw new InvalidValueException(string.Format("Given value {0} was lesser than minimum value of {1}", value, minValue));
         }
 
         public static implicit operator SaveNumber(int number)

@@ -24,7 +24,7 @@ namespace MRobot.Civilization.Civ5
 
         public SaveNumber NumberOfCityStates { get; internal set; }
 
-        protected override void SetMapSize(MapSize mapSize)
+        public override void SetMapSize(MapSize mapSize)
         {
             base.SetMapSize(mapSize);
             AdjustCityStatesBySize(mapSize);

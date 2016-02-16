@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MRobot.Civilization.Base;
-using MRobot.Civilization.Civ5.Data;
-using GameConfig = MRobot.Civilization.Civ5.GameConfig;
-
-namespace MRobot.Civilization
+﻿namespace MRobot.Civilization.Base
 {
     internal static class SaveHelpers
     {
@@ -20,7 +10,7 @@ namespace MRobot.Civilization
 
         internal static int SectionDelimiter = 0x40;
 
-        internal static readonly byte[] FileStart = new byte[] { 0x43, 0x49, 0x56, 0x35 }; //CIV5
+        internal static readonly byte[] Civ5FileStart = new byte[] { 0x43, 0x49, 0x56, 0x35 }; //CIV5
 
         internal static readonly byte[] FullBlock = new byte[] { 0xFF, 0xFF, 0xFF, 0xFF };
 

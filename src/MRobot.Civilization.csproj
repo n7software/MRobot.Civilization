@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseSaveItem.cs" />
+    <Compile Include="Base\BaseSaveItem.cs" />
     <Compile Include="Base\Civilization.cs" />
     <Compile Include="Base\MapSize.cs" />
     <Compile Include="Base\PlayerDifficulty.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="Civ5\MapEnums\MapSize.cs" />
     <Compile Include="Civ5\Data\MapProperties.cs" />
     <Compile Include="Civ5\Player.cs" />
+    <Compile Include="Civ5\Save\SaveReader.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Base\Expansion.cs">
       <SubType>Code</SubType>
@@ -92,7 +93,7 @@
     <Compile Include="Base\Map.cs" />
     <Compile Include="Civ5\Data\Maps.cs" />
     <Compile Include="Civ5\Data\MapSizes.cs" />
-    <Compile Include="GameProperty.cs" />
+    <Compile Include="Base\GameProperty.cs" />
     <Compile Include="Base\MapProperties.cs" />
     <Compile Include="Base\Player.cs" />
     <Compile Include="Base\GameMode.cs" />
@@ -102,18 +103,18 @@
     <Compile Include="Civ5\MapEnums\SeaLevel.cs" />
     <Compile Include="Civ5\MapEnums\Temperature.cs" />
     <Compile Include="Civ5\MapEnums\WorldAge.cs" />
-    <Compile Include="ISaveItem.cs" />
+    <Compile Include="Base\ISaveItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveNumber.cs" />
-    <Compile Include="SaveString.cs" />
+    <Compile Include="Base\SaveNumber.cs" />
+    <Compile Include="Base\SaveString.cs" />
     <Compile Include="Base\GameConfig.cs" />
     <Compile Include="Civ5\Save\GameLoader.cs" />
     <Compile Include="Civ5\Save\GameSaver.cs" />
     <Compile Include="Civ5\GameSave.cs" />
-    <Compile Include="SaveHelpers.cs" />
-    <Compile Include="SaveReader.cs" />
-    <Compile Include="SaveWriter.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Base\SaveHelpers.cs" />
+    <Compile Include="Base\SaveReader.cs" />
+    <Compile Include="Base\SaveWriter.cs" />
+    <Compile Include="Base\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cert.pfx" />

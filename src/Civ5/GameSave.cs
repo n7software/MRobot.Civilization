@@ -3,13 +3,12 @@ using System.IO;
 using System.Linq;
 using MRobot.Civilization.Civ5.Data;
 using MRobot.Civilization.Civ5.Save;
+using MRobot.Civilization.Base;
 
 namespace MRobot.Civilization.Civ5
 {
     public class GameSave : GameConfig
     {
-        private int _rawGameDataIndex;
-
         private byte[] _originalBytes;
 
         internal GameSave()
@@ -22,19 +21,25 @@ namespace MRobot.Civilization.Civ5
         {
             using (var stream = new MemoryStream(saveData))
             {
-                return GameSave.Load(stream);
+                return GameLoader.Load(stream);
             }
         }
-
-        public byte[] OriginalBytes => _originalBytes.ToArray();
-
-        private byte[] RawGameData => _originalBytes.Skip(_rawGameDataIndex).ToArray();
+        
+        private byte[] RawGameData => _originalBytes.Skip(RawGameDataIndex).ToArray();
 
         public IGameProperty<GameEra> HeaderCurrentEra { get; private set; }
 
         public int TurnNumber { get; set; }
 
         public int CurrentPlayerIndex { get; set; }
+
+        public int RawGameDataIndex { get; set; }
+
+        public byte[] OriginalBytes
+        {
+            get { return _originalBytes.ToArray(); }
+            set { _originalBytes = value; }
+        }
 
         #region Overridden Methods
 

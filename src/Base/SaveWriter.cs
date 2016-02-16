@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using MRobot.Civilization.Base;
-using MRobot.Civilization.Civ5;
-using GameConfig = MRobot.Civilization.Base.GameConfig;
+﻿using System.IO;
 
-namespace MRobot.Civilization
+namespace MRobot.Civilization.Base
 {
     public class SaveWriter : BinaryWriter
     {
@@ -81,7 +74,7 @@ namespace MRobot.Civilization
         public void WritePlayerSlotsSection()
         {
             this.Write(SaveHelpers.SectionDelimiter);
-            int maxPlayers = (int)Save.Map.Size.Value;
+            int maxPlayers = Save.Map.Size.Value.Players;
             for (int i = 0; i < SaveHelpers.StandardSectionBlockCount; i++)
             {
                 if (i < maxPlayers && (Save.Players[i].Type == PlayerType.Human || Save.Players[i].Type == PlayerType.AI))

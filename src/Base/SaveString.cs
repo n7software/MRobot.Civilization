@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MRobot.Civilization
+namespace MRobot.Civilization.Base
 {
     public class SaveString : IEquatable<SaveString>
     {

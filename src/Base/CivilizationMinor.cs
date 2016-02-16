@@ -1,6 +1,6 @@
 ﻿namespace MRobot.Civilization.Base
 {
-    public abstract class CivilizationMinor : BaseSaveItem, ICivilization
+    public class CivilizationMinor : BaseSaveItem, ICivilization
     {
         internal CivilizationMinor(string name = "", PlayerColor color = null)
             : base("MINOR", name)

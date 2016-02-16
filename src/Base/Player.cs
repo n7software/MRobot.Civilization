@@ -26,7 +26,7 @@ namespace MRobot.Civilization.Base
 
         public SaveString Name { get; set; }
 
-        public IGameProperty<PlayerDifficulty> Difficulty { get; protected set; }
+        public IGameProperty<PlayerDifficulty> Difficulty { get; set; }
 
         private PlayerType _type;
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MRobot.Civilization.Base;
+using System.Linq;
 
 namespace MRobot.Civilization.Civ5.Data
 {
@@ -17,7 +18,7 @@ namespace MRobot.Civilization.Civ5.Data
 
         public readonly static PlayerDifficulty DefaultDifficulty = Chieftain;
 
-        public static IEnumerable<PlayerDifficulty> All = new List<PlayerDifficulty>
+        public readonly static IEnumerable<PlayerDifficulty> All = new List<PlayerDifficulty>
         {
             Settler,
             Chieftain,
@@ -29,5 +30,11 @@ namespace MRobot.Civilization.Civ5.Data
             Diety,
             AI
         };
+
+        public static IDictionary<PlayerDifficulty, string> AllInNamesDictionary()
+            => All.ToDictionary(d => d, d => d.Name);
+
+        public static PlayerDifficulty FromInt(int difficulty)
+            => All.Single(d => d.Value == difficulty);
     }
 }
