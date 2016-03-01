@@ -9,8 +9,6 @@ namespace MRobot.Civilization.Civ5
 {
     public class GameSave : GameConfig
     {
-        private byte[] _originalBytes;
-
         internal GameSave()
             : base()
         {
@@ -31,15 +29,7 @@ namespace MRobot.Civilization.Civ5
 
         public int TurnNumber { get; set; }
 
-        public int CurrentPlayerIndex { get; set; }
-
         public int RawGameDataIndex { get; set; }
-
-        public byte[] OriginalBytes
-        {
-            get { return _originalBytes.ToArray(); }
-            set { _originalBytes = value; }
-        }
 
         #region Overridden Methods
 

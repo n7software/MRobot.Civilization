@@ -85,12 +85,7 @@ namespace MRobot.Civilization.Civ5
         public bool ScienceVictory { get; set; }
 
         public IGameProperty<object> GamePace { get; }  = CreateGamePaceProperty(Data.GamePace.Quick);
-
-        /// <summary>
-        /// Note that all games have the Upgrade 1 expansion
-        /// </summary>
-        public IEnumerable<Expansion> Expansions => _Expansions.ToArray();
-
+        
         public bool HasGnkOrBnw => _Expansions.Any(e => e == Data.Expansions.GodsAndKings || e == Data.Expansions.BraveNewWorld);
 
         public bool HasGnk => _Expansions.Contains(Data.Expansions.GodsAndKings);

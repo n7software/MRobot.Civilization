@@ -269,8 +269,7 @@ namespace MRobot.Civilization.Base
             }
             else return null;
         }
-
-
+        
         public bool ReadIntAsBool()
         {
             return this.ReadInt32() != 0;

@@ -8,7 +8,7 @@ namespace MRobot.Civilization.Civ5.Save
 {
     public static class GameLoader
     {
-        public static GameSave Load(Stream save, int expectedLength = -1)
+        public static GameSave Load(Stream save, int expectedLength = -1, bool skipFileStart = false)
         {
             var gameSave = new GameSave();
             using (var reader = new SaveReader(save))
@@ -16,9 +16,12 @@ namespace MRobot.Civilization.Civ5.Save
                 #region Basic Game Information (Header, Expansions, Mods)
 
                 #region Header
-                var fileStart = new string(reader.ReadChars(4));
-                if (fileStart != "CIV5")
-                    throw new InvalidSaveException("File did not start with CIV5");
+                if (!skipFileStart)
+                {
+                    var fileStart = new string(reader.ReadChars(4));
+                    if (fileStart != "CIV5")
+                        throw new InvalidSaveException("File did not start with CIV5"); 
+                }
 
                 reader.VerifySectionDelimiter(0x08);
                 gameSave.Version = reader.ReadSaveString();

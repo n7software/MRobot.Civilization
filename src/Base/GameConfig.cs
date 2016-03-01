@@ -9,6 +9,8 @@ namespace MRobot.Civilization.Base
 {
     public abstract class GameConfig
     {
+        protected byte[] _originalBytes;
+
         protected GameConfig()
         {
             Version = CurrentVersion();
@@ -34,11 +36,20 @@ namespace MRobot.Civilization.Base
 
         public int RandomSeed { get; set; }
 
+        public int CurrentPlayerIndex { get; set; }
+
         public ISet<Mod> Mods { get; private set; }
 
         public Player[] Players { get; protected set; }
         
         public int PlayerCount => Players.TakeWhile(p => p.Type == PlayerType.Human || p.Type == PlayerType.AI).Count();
+        
+        public byte[] OriginalBytes
+        {
+            get { return _originalBytes.ToArray(); }
+            set { _originalBytes = value; }
+        }
+        public IEnumerable<Expansion> Expansions => _Expansions.ToArray();
 
         protected readonly ISet<Expansion> _Expansions;
 

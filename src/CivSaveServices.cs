@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MRobot.Civilization.Base;
+using MRobot.Civilization.Civ5.Save;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +28,23 @@ namespace MRobot.Civilization
                 default:
                     throw new InvalidOperationException($"Invalid steam game id: {steamGameId}");
             }
+        }
+
+        public static GameConfig ReadSaveFile(Stream saveStream, int expectedLength)
+        {
+            var reader = new BinaryReader(saveStream);
+            char[] fileStart = reader.ReadChars(4);
+
+            if (fileStart[3] == 'B')
+            {
+                // Load as a CivBE save
+            }
+            else if (fileStart[3] == '5')
+            {
+                return GameLoader.Load(saveStream, expectedLength, true);
+            }
+
+            throw new InvalidSaveException($"Could not determine game type for save file. File start: {new string(fileStart)}");
         }
     }
 }
