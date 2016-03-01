@@ -37,8 +37,12 @@ namespace MRobot.Civilization.Base
         public ISet<Mod> Mods { get; private set; }
 
         public Player[] Players { get; protected set; }
+        
+        public int PlayerCount => Players.TakeWhile(p => p.Type == PlayerType.Human || p.Type == PlayerType.AI).Count();
 
         protected readonly ISet<Expansion> _Expansions;
+
+        public abstract byte[] ToBytes();
 
         protected abstract string CurrentVersion();
         protected abstract string CurrentBuild();

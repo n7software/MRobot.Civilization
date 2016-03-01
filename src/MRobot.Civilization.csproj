@@ -107,6 +107,7 @@
     <Compile Include="Civ5\MapEnums\Temperature.cs" />
     <Compile Include="Civ5\MapEnums\WorldAge.cs" />
     <Compile Include="Base\ISaveItem.cs" />
+    <Compile Include="GameSteamIds.cs" />
     <Compile Include="ICivSaveService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\SaveNumber.cs" />

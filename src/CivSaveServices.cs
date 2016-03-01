@@ -11,5 +11,20 @@ namespace MRobot.Civilization
         public static ICivSaveService Civ5 => new Civ5.CivSaveService();
 
         public static ICivSaveService CivBe => new CivBE.CivSaveService();
+
+        public static ICivSaveService FromSteamId(int steamGameId)
+        {
+            switch (steamGameId)
+            {
+                case GameSteamIds.CivV:
+                    return Civ5;
+
+                case GameSteamIds.BeyondEarth:
+                    return CivBe;
+
+                default:
+                    throw new InvalidOperationException($"Invalid steam game id: {steamGameId}");
+            }
+        }
     }
 }

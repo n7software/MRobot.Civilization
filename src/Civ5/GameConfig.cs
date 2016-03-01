@@ -78,9 +78,7 @@ namespace MRobot.Civilization.Civ5
         }
 
         public ICivilization HeaderCiv { get; set; }
-
-        public int PlayerCount => Players.TakeWhile(p => p.Type == PlayerType.Human || p.Type == PlayerType.AI).Count();
-
+        
         public bool CulturalVictory { get; set; }
         public bool DiplomaticVictory { get; set; }
         public bool TimeVictory { get; set; }
@@ -160,7 +158,7 @@ namespace MRobot.Civilization.Civ5
             new GameSaver(this).Save(outputStream);
         }
 
-        public byte[] ToBytes()
+        public override byte[] ToBytes()
         {
             return new GameSaver(this).ToBytes();
         }
