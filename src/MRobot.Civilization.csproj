@@ -49,6 +49,7 @@
     <Compile Include="Base\Civilization.cs" />
     <Compile Include="Base\MapSize.cs" />
     <Compile Include="Base\PlayerDifficulty.cs" />
+    <Compile Include="Civ5\CivSaveService.cs" />
     <Compile Include="Civ5\Data\Civilizations.cs" />
     <Compile Include="Base\CivilizationMinor.cs" />
     <Compile Include="Base\ICivilization.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Civ5\Data\MapProperties.cs" />
     <Compile Include="Civ5\Player.cs" />
     <Compile Include="Civ5\Save\SaveReader.cs" />
+    <Compile Include="CivBE\CivSaveService.cs" />
+    <Compile Include="CivSaveServices.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Base\Expansion.cs">
       <SubType>Code</SubType>
@@ -104,6 +107,7 @@
     <Compile Include="Civ5\MapEnums\Temperature.cs" />
     <Compile Include="Civ5\MapEnums\WorldAge.cs" />
     <Compile Include="Base\ISaveItem.cs" />
+    <Compile Include="ICivSaveService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\SaveNumber.cs" />
     <Compile Include="Base\SaveString.cs" />
@@ -119,9 +123,7 @@
   <ItemGroup>
     <None Include="cert.pfx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CivBE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
