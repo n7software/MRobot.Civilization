@@ -60,5 +60,12 @@ namespace MRobot.Civilization
             maps.AddRange(CivBe.AllMaps);
             return maps;
         }
+
+        public static int GetDefaultCityStateCount(MapSize mapSize)
+        {
+            var map = Civilization.Civ5.Data.Maps.Continents;
+            map.SetMapSize(mapSize);
+            return map.NumberOfCityStates;
+        }
     }
 }
