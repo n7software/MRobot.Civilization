@@ -8,9 +8,10 @@ namespace MRobot.Civilization.Base
 {
     public class Map: IExpandable
     {
-        internal Map(string name, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
+        internal Map(string name, int steamGameId, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
         {
             Name = name;
+            SteamGameId = steamGameId;
             Path = saveName;
             Requirement = requirement;
             _MapProperties = new List<GameProperty>(mapProperties ?? new GameProperty[0]);
@@ -20,6 +21,8 @@ namespace MRobot.Civilization.Base
 
             this._Size = mapSize;
         }
+
+        public int SteamGameId { get; }
 
         public string Name { get; private set; }
 

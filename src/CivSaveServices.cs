@@ -46,5 +46,19 @@ namespace MRobot.Civilization
 
             throw new InvalidSaveException($"Could not determine game type for save file. File start: {new string(fileStart)}");
         }
+
+        public static IEnumerable<Expansion> GetAllExpansions()
+        {
+            var expansions = Civ5.AllExpansions.ToList();
+            expansions.AddRange(CivBe.AllExpansions);
+            return expansions;
+        }
+
+        public static IEnumerable<Map> GetAllMaps()
+        {
+            var maps = Civ5.AllMaps.ToList();
+            maps.AddRange(CivBe.AllMaps);
+            return maps;
+        }
     }
 }

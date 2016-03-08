@@ -9,7 +9,7 @@ namespace MRobot.Civilization.Civ5
     public class Map : Base.Map
     {
         public Map(string name, GameProperty<MapSize> mapSize = null, IEnumerable<GameProperty> mapProperties = null, SaveString saveName = null, Expansion requirement = null, IDictionary<MapSize, SaveString> sizedMaps = null)
-            : base(name, mapSize, mapProperties, saveName, requirement, sizedMaps)
+            : base(name, GameSteamIds.CivV, mapSize, mapProperties, saveName, requirement, sizedMaps)
         {
             if (mapSize == null)
                 mapSize = Data.MapProperties.MapSizeProp;
