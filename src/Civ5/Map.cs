@@ -22,7 +22,7 @@ namespace MRobot.Civilization.Civ5
 
         const int MaxCityStates = 58;
 
-        public SaveNumber NumberOfCityStates { get; internal set; }
+        public override SaveNumber NumberOfCityStates { get; internal set; }
 
         public override void SetMapSize(MapSize mapSize)
         {

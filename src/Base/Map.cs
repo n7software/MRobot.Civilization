@@ -27,6 +27,12 @@ namespace MRobot.Civilization.Base
 
         public Expansion Requirement { get; private set; }
 
+        public virtual SaveNumber NumberOfCityStates
+        {
+            get { return new SaveNumber(0); }
+            internal set { }
+        }
+
         protected GameProperty<MapSize> _Size;
 
         public IGamePropertyReadOnly<MapSize> Size { get { return _Size; } }

@@ -5,7 +5,7 @@ namespace MRobot.Civilization.Base
 {
     public class Expansion : IEquatable<Expansion>, ISaveItem
     {
-        internal Expansion(string name, string saveName, string steamId, byte[] prefixBytes, int id = 0, bool isFullExpansion = false)
+        internal Expansion(string name, string saveName, string steamId, int steamGameId, byte[] prefixBytes, int id = 0, bool isFullExpansion = false)
         {
             Id = id;
             Name = name;
@@ -20,6 +20,8 @@ namespace MRobot.Civilization.Base
         public string Name { get; }
 
         public string SteamId { get; private set; }
+
+        public int SteamGameId { get; private set; }
 
         public bool IsFullExpansion { get; private set; }
 

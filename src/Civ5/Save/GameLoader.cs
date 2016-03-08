@@ -55,7 +55,7 @@ namespace MRobot.Civilization.Civ5.Save
                     var expansion = Expansions.AllWithInternal.SingleOrDefault(e => Enumerable.SequenceEqual(e.SaveId, expansionId) && e.SaveName == expansionName);
                     if (expansion == null)
                     {
-                        expansion = new Expansion(expansionName, expansionName, string.Empty, expansionId);
+                        expansion = new Expansion(expansionName, expansionName, string.Empty, GameSteamIds.CivV, expansionId);
                     }
                     gameSave.AddExpansion(expansion);
                 }

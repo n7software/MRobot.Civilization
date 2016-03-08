@@ -42,6 +42,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Spain and Inca", 
             saveName: "Spain and Inca", 
             steamId: "16867",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0xDE, 0xD5, 0x85, 0xB6, 0xCA, 0x7C, 0x75, 0x4E, 0x81, 0xB4, 0x2F, 0x60, 0x75, 0x4E, 0x63, 0x30 }
         );
@@ -51,6 +52,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Polynesia", 
             saveName: "Polynesia", 
             steamId: "99610",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0x05, 0xC6, 0xF7, 0xEC, 0x11, 0xBA, 0xAC, 0x4C, 0x8D, 0x80, 0xD7, 0x13, 0x06, 0xAA, 0xC4, 0x71 }
         );
@@ -60,6 +62,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Denmark", 
             saveName: "Denmark", 
             steamId: "99611",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0x39, 0x0D, 0x03, 0xB3, 0xD8, 0xC0, 0xC7, 0x4B, 0x91, 0xB1, 0x7A, 0xD1, 0xCA, 0xF5, 0x85, 0xAB }
         );
@@ -69,6 +72,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Korea", 
             saveName: "Korea", 
             steamId: "99612",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0xB2, 0x22, 0x2C, 0x11, 0x08, 0x53, 0xB6, 0x42, 0xB7, 0x34, 0x17, 0x1C, 0xCA, 0xB3, 0x03, 0x7B }
         );
@@ -78,6 +82,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Babylon",
             saveName: "Babylon",
             steamId: "16868",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0x32, 0xBA, 0x59, 0x74, 0x64, 0x57, 0xAE, 0x44, 0x8E, 0x95, 0x01, 0xAD, 0x0E, 0x0E, 0xFD, 0x48 }
         );
@@ -87,6 +92,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Ancient Wonders", 
             saveName: "Ancient Wonders", 
             steamId: "99614",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0x85, 0xD0, 0xB0, 0xBB, 0xB1, 0xA0, 0x75, 0x44, 0xB0, 0x07, 0x3E, 0x54, 0x9C, 0xF3, 0xAD, 0xC3 }
         );
@@ -96,6 +102,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Explorer\'s Map Pack", 
             saveName: "DLC_SP_Maps", 
             steamId: "16866",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0x54, 0xDF, 0x49, 0x3F, 0xB6, 0x68, 0xD1, 0x44, 0xA9, 0x30, 0xA1, 0x68, 0x62, 0x8F, 0xAA, 0x59 }
         );
@@ -105,6 +112,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Gods and Kings", 
             saveName: "Expansion - Gods and Kings", 
             steamId: "16870",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: true,
             prefixBytes: new byte[] { 0xA1, 0x51, 0x37, 0x0E, 0x40, 0xF8, 0x1B, 0x4E, 0x97, 0x06, 0x51, 0x9B, 0xF4, 0x84, 0xE5, 0x9D }
         );
@@ -114,6 +122,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Brave New World", 
             saveName: "Expansion - Brave New World", 
             steamId: "235580",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: true,
             prefixBytes: new byte[] { 0x36, 0x76, 0xA0, 0x6D, 0x23, 0x41, 0x18, 0x40, 0xB6, 0x43, 0x65, 0x75, 0xB4, 0xEC, 0x33, 0x6B }
         );
@@ -123,6 +132,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Scrambled Continents Map Pack",
             saveName: "DLC_SP_Maps_2",
             steamId: "235584",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0xFC, 0xEF, 0xEA, 0x46, 0x1D, 0x7B, 0x3D, 0x44, 0xBF, 0xC8, 0xF8, 0x25, 0xDF, 0xEF, 0xB0, 0x94 }
         );
@@ -132,6 +142,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Scrambled Nations Map Pack",
             saveName: "DLC_SP_Maps_3",
             steamId: "235585",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0xF7, 0xF5, 0x55, 0x42, 0xAB, 0xD3, 0x55, 0x4E, 0xAC, 0xEE, 0x46, 0x70, 0x08, 0x20, 0x40, 0xED }
         );
@@ -145,6 +156,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Mongolia",
             saveName: "Mongolia",
             steamId: string.Empty,
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0xE3, 0x1E, 0x3C, 0x29, 0x76, 0x11, 0xF6, 0x44, 0xAC, 0x1F, 0x59, 0x66, 0x38, 0x26, 0xDE, 0x74 }
         );
@@ -155,6 +167,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Upgrade 1",
             saveName: "Upgrade 1",
             steamId: null,
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: false,
             prefixBytes: new byte[] { 0x48, 0xE7, 0x71, 0x88, 0xA4, 0x29, 0x10, 0x49, 0x8C, 0x57, 0x8C, 0x99, 0xE3, 0x2D, 0x01, 0x67 }
         );
@@ -165,6 +178,7 @@ namespace MRobot.Civilization.Civ5.Data
             name: "Civilization 5 Complete",
             saveName: "Civilization 5 Complete",
             steamId: "36075",
+            steamGameId: GameSteamIds.CivV,
             isFullExpansion: true,
             prefixBytes: new byte[] { 0xD5, 0xAE, 0x67, 0xEA, 0x59, 0x58, 0x75, 0x48, 0xBF, 0x3A, 0x36, 0x0F, 0xE9, 0xE5, 0x5D, 0x1B }
         );
