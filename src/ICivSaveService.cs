@@ -22,6 +22,8 @@ namespace MRobot.Civilization
 
         IEnumerable<PlayerDifficulty> AllDifficulties { get; }
 
+        PlayerDifficulty DefaultPlayerDifficulty { get; }
+
         GameConfig LoadGameConfig(Stream saveStream);
     }
 }

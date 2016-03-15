@@ -15,6 +15,8 @@ namespace MRobot.Civilization.Civ5
 
         public IEnumerable<PlayerDifficulty> AllDifficulties => PlayerDifficulties.All;
 
+        public PlayerDifficulty DefaultPlayerDifficulty => PlayerDifficulties.Prince;
+
         public IEnumerable<Expansion> AllExpansions => Expansions.All;
 
         public IEnumerable<Base.Map> AllMaps => Maps.GetAllDefaultMaps();

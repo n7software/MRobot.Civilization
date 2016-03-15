@@ -83,9 +83,7 @@ namespace MRobot.Civilization.Civ5
         public bool DiplomaticVictory { get; set; }
         public bool TimeVictory { get; set; }
         public bool ScienceVictory { get; set; }
-
-        public IGameProperty<object> GamePace { get; }  = CreateGamePaceProperty(Data.GamePace.Quick);
-        
+                
         public bool HasGnkOrBnw => _Expansions.Any(e => e == Data.Expansions.GodsAndKings || e == Data.Expansions.BraveNewWorld);
 
         public bool HasGnk => _Expansions.Contains(Data.Expansions.GodsAndKings);
@@ -169,12 +167,7 @@ namespace MRobot.Civilization.Civ5
             HeaderStartingEra = GameEraProps.Expansions;
             StartingEra = GameEraProps.Expansions;
         }
-
-        private static IGameProperty<object> CreateGamePaceProperty(GamePace defaultPace)
-        {
-            return new GameProperty<object>("Game Pace", defaultPace, GamePaceDict.GamePaceAsDict);
-        }
-
+        
         #region Basic Options
         public IGameProperty<GameEra> HeaderStartingEra { get; private set; }
         public IGameProperty<GameEra> StartingEra { get; private set; }

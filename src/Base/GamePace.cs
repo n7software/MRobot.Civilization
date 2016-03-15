@@ -1,7 +1,7 @@
 ﻿using MRobot.Civilization.Base;
 using System.Collections.Generic;
 
-namespace MRobot.Civilization.Civ5.Data
+namespace MRobot.Civilization.Base
 {
     public enum GamePace
     {

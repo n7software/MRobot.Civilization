@@ -42,6 +42,14 @@ namespace MRobot.Civilization.CivBE
             }
         }
 
+        public PlayerDifficulty DefaultPlayerDifficulty
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public ICivilization UknownCiv
         {
             get

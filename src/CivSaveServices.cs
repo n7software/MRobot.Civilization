@@ -66,6 +66,6 @@ namespace MRobot.Civilization
             var map = Civilization.Civ5.Data.Maps.Continents;
             map.SetMapSize(mapSize);
             return map.NumberOfCityStates;
-        }
+        }        
     }
 }

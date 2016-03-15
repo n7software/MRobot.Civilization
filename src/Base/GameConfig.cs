@@ -37,6 +37,8 @@ namespace MRobot.Civilization.Base
         public int RandomSeed { get; set; }
 
         public int CurrentPlayerIndex { get; set; }
+        
+        public IGameProperty<object> GamePace { get; } = CreateGamePaceProperty(Base.GamePace.Quick);
 
         public ISet<Mod> Mods { get; private set; }
 
@@ -57,5 +59,10 @@ namespace MRobot.Civilization.Base
 
         protected abstract string CurrentVersion();
         protected abstract string CurrentBuild();
+        
+        private static IGameProperty<object> CreateGamePaceProperty(GamePace defaultPace)
+        {
+            return new GameProperty<object>("Game Pace", defaultPace, GamePaceDict.GamePaceAsDict);
+        }
     }
 }
