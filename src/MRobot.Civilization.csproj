@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Base\BaseSaveItem.cs" />
     <Compile Include="Base\Civilization.cs" />
+    <Compile Include="Base\GamePace.cs" />
     <Compile Include="Base\MapSize.cs" />
     <Compile Include="Base\PlayerDifficulty.cs" />
     <Compile Include="Civ5\CivSaveService.cs" />
@@ -80,7 +81,6 @@
     <Compile Include="Base\IExpandable.cs" />
     <Compile Include="Base\Mod.cs" />
     <Compile Include="Civ5\Data\GameEra.cs" />
-    <Compile Include="Civ5\Data\GamePace.cs" />
     <Compile Include="Civ5\MapEnums\BodiesOfWater.cs" />
     <Compile Include="Civ5\MapEnums\IsthmusWidth.cs" />
     <Compile Include="Civ5\MapEnums\LandShape.cs" />
