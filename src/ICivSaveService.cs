@@ -25,5 +25,7 @@ namespace MRobot.Civilization
         PlayerDifficulty DefaultPlayerDifficulty { get; }
 
         GameConfig LoadGameConfig(Stream saveStream);
+
+        IDictionary<string, string> DefaultGameWorldOptions { get; }
     }
 }

@@ -32,5 +32,19 @@ namespace MRobot.Civilization.Civ5
         {
             return Save.GameLoader.Load(saveStream);
         }
+
+        public IDictionary<string, string> DefaultGameWorldOptions
+        {
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                    [typeof(GamePace).Name] = GamePace.Quick.ToString(),
+                    [typeof(Map).Name] = Maps.Continents.ToString(),
+                    [typeof(MapSize).Name] = MapSizes.Standard.ToString(),
+                    ["CityStates"] = Maps.Continents.NumberOfCityStates.ToString()
+                };
+            }
+        }
     }
 }
