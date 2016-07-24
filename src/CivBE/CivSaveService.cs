@@ -42,6 +42,14 @@ namespace MRobot.Civilization.CivBE
             }
         }
 
+        public IDictionary<string, string> DefaultGameWorldOptions
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public PlayerDifficulty DefaultPlayerDifficulty
         {
             get
@@ -64,6 +72,11 @@ namespace MRobot.Civilization.CivBE
         }
 
         public GameConfig LoadGameConfig(Stream saveStream)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GameConfig CreateNewGame()
         {
             throw new NotImplementedException();
         }

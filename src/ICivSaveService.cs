@@ -27,5 +27,7 @@ namespace MRobot.Civilization
         GameConfig LoadGameConfig(Stream saveStream);
 
         IDictionary<string, string> DefaultGameWorldOptions { get; }
+
+        GameConfig CreateNewGame();
     }
 }

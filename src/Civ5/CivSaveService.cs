@@ -46,5 +46,10 @@ namespace MRobot.Civilization.Civ5
                 };
             }
         }
+
+        public Base.GameConfig CreateNewGame()
+        {
+            return new GameSave();
+        }
     }
 }

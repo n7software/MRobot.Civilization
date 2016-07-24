@@ -118,7 +118,7 @@ namespace MRobot.Civilization.Civ5
         /// <summary>
         /// Note that adding all expansions to a map will automatically add the Civilization V Compete expansion
         /// </summary>
-        public void AddExpansion(Expansion expansion)
+        protected override void AddExpansionInternal(Expansion expansion)
         {
             if (expansion != Data.Expansions.CivilizationVComplete)
             {
@@ -130,6 +130,11 @@ namespace MRobot.Civilization.Civ5
                 if (_Expansions.IsSupersetOf(Data.Expansions.All))
                     _Expansions.Add(Data.Expansions.CivilizationVComplete);
             }
+        }
+
+        protected override IEnumerable<Expansion> AllExpansions()
+        {
+            return Data.Expansions.All;
         }
 
         public void RemoveExpansion(Expansion expansion)

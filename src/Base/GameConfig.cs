@@ -55,6 +55,24 @@ namespace MRobot.Civilization.Base
 
         protected readonly ISet<Expansion> _Expansions;
 
+        public void AddExpansion(int dlcId)
+        {
+            var expansion = AllExpansions().FirstOrDefault(e => e.Id == dlcId);
+            if (expansion != null && !_Expansions.Contains(expansion))
+            {
+                AddExpansionInternal(expansion);
+            }
+        }
+
+        public void AddExpansion(Expansion expansion)
+        {
+            AddExpansionInternal(expansion);
+        }
+
+        protected abstract void AddExpansionInternal(Expansion expansion);
+
+        protected abstract IEnumerable<Expansion> AllExpansions();
+
         public abstract byte[] ToBytes();
 
         protected abstract string CurrentVersion();

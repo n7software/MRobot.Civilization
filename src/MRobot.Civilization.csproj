@@ -134,6 +134,6 @@
   </Target>
   -->
   <Target Name="AfterCompile">
-    <Exec Command="&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe&quot; sign /f &quot;$(ProjectDir)cert.pfx&quot; /p GlaCier3G /v &quot;$(ProjectDir)obj\$(ConfigurationName)\$(TargetFileName)&quot;" />
+    <!-- <Exec Command="&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe&quot; sign /f &quot;$(ProjectDir)cert.pfx&quot; /p GlaCier3G /v &quot;$(ProjectDir)obj\$(ConfigurationName)\$(TargetFileName)&quot;" /> -->
   </Target>
 </Project>
