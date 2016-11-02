@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using MRobot.Civilization.Base;
 using MRobot.Civilization.Civ5.Data;
 using MRobot.Civilization.Civ5.Save;

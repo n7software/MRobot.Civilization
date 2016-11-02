@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MRobot.Civilization.Base;
 
 namespace MRobot.Civilization.Civ5.Data
